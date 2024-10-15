@@ -1,0 +1,106 @@
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+}
+
+.profile-creation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+}
+
+.profile-creation-mid {
+    display: flex;
+    width: 100%;
+}
+
+.profile-creation-mid-left {
+    flex: 1;
+    padding-right: 20px;
+    text-align: center;
+}
+
+.profile-creation-mid-right {
+    flex: 1;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    margin-right: 10px;
+    width: 80px;
+}
+
+.gender-options {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 가로 중앙 정렬 */
+}
+
+.gender-option {
+    display: flex;
+    align-items: center;
+}
+
+.profile-image-display {
+    display: flex;
+    justify-content: center;
+
+}
+
+.profile-image-display img {
+    max-width: 100%;
+    height: auto;
+}
+
+.profile-image-display div {
+    max-width: 100%;
+    height: 150px;
+    width: 150px;
+    border-radius: 20px;
+}
+
+.profile-image-options {
+    display: flex; /* 가로로 배치 */
+    justify-content: center; /* 중앙 정렬 */
+    margin-top: 10px;
+}
+
+.profile-option {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.create-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #72e5ff;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.create-button:hover {
+    background-color: #C2EAF3;
+}

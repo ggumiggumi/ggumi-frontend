@@ -1,7 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import ProfileCard from '../components/ProfileCard';
 import '../styles/ProfileSelection.css';
-import backgroundImage from '../assets/background-yellow.png'; // 배경 이미지 경로
+import backgroundImage from '../assets/background-yellow.png';
 import addProfile from '../assets/add-profile.png';
 import characterImage from '../assets/home-ggummi.png';
 
@@ -13,6 +14,7 @@ const profiles = [
 ];
 
 const Home = () => {
+    const navigate = useNavigate();
     const handleSelectProfile = (name) => {
         // 프로필 선택 처리 로직
         console.log(`${name} 선택됨`);
@@ -21,6 +23,7 @@ const Home = () => {
     const handleAddProfile = () => {
         // 프로필 추가 처리 로직
         console.log('프로필 추가 버튼 클릭됨');
+        navigate('/add-child'); 
     };
 
     return (

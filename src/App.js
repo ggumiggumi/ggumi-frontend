@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
+import AddChild from './pages/AddChild';
 
 function App() {
   return (
@@ -8,6 +9,8 @@ function App() {
     <Routes>
       {/* 프로필 선택 페이지 */}
       <Route path="/" element={<Home />} />
+      {/* 프로필 생성 페이지*/}
+      <Route path="/add-child" element={<AddChild />} />
     </Routes>
   </Router>
   );
