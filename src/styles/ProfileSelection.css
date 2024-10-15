@@ -5,6 +5,7 @@
     align-items: center;
     height: 100vh;
     min-width: 800px;
+    min-height: 500px;
     background-size: cover;
 }
 
@@ -12,6 +13,7 @@
     font-size: 24px;
     font-weight: bold;
     text-align: center;
+    margin-top: 10%;
     margin-bottom: 20px;
     color: #333; /* 제목 색상 */
 }
@@ -47,4 +49,15 @@
 
 .add-profile-button:hover {
     background-color: #484848; /* 마우스 오버 시 색상 변경 */
+}
+
+.brand-character-container {
+    display: flex;
+    justify-content: flex-start; /* 좌측에서 배치 */
+    padding-left: 70%; /* 좌측에서 70% 위치로 이동 */
+}
+
+.brand-character {
+    width: 200px;
+    height: auto;
 }
