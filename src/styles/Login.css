@@ -1,9 +1,56 @@
-.home-container {
+@import url("https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Stylish&display=swap");
+
+.login-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 100vh;
   min-width: 800px;
   background-size: cover;
+}
+
+.ggumi-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.ggumi-main-title {
+  font-family: "Bagel Fat One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 200px;
+  color: #e54851;
+}
+
+.ggumi-semi-title {
+  font-family: "Stylish", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 60px;
+  color: #535151;
+}
+
+.welcome-sticker {
+  position: fixed;
+  margin-top: 550px;
+}
+
+.login {
+  position: fixed;
+  width: 600px;
+  height: 90px;
+  padding: 0;
+  border-radius: 15px;
+  border: black solid 2px;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  margin-top: 690px;
+}
+
+.kakao-login {
+  width: 100%;
+  height: 100%;
 }
