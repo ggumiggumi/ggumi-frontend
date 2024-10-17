@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Stylish&display=swap");
+
+.mbti-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  min-width: 800px;
+  background-size: cover;
+}
+
+.ggumi-logo-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 347.876px;
+  height: 151.069px;
+  flex-shrink: 0;
+}
+
+.ggumi-heart-logo {
+  width: 141.124px;
+  height: 130.118px;
+  flex-shrink: 0;
+}
+
+.main-title {
+  width: 206.876px;
+  height: 89.069px;
+  flex-shrink: 0;
+  color: #e54851;
+  font-family: "Bagel Fat One";
+  font-size: 100px;
+  font-weight: 400;
+  line-height: 95px; /* 48% */
+  letter-spacing: -2.2px;
+  padding-top: 10px;
+}
+
+.sub-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 567px;
+  height: auto;
+  margin-top: 120px;
+}
+
+.sub-title {
+  color: #31241c;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 48px; /* 100% */
+  letter-spacing: -1.056px;
+  margin: 0;
+}
+
+.sub-title2 {
+  color: #e54851;
+  font-family: Roboto;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 48px;
+  letter-spacing: -1.056px;
+  margin: 0;
+}
+
+.explanation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 567px;
+  height: auto;
+  margin-top: 135px;
+}
+
+.question-explanation {
+  color: #31241c;
+  text-align: center;
+  font-family: Stylish;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 48px; /* 160% */
+  letter-spacing: -0.66px;
+  margin: 0px;
+}
+
+.time-explanation {
+  color: #31241c;
+  text-align: center;
+  font-family: Stylish;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 48px; /* 160% */
+  letter-spacing: -0.66px;
+  margin: 0px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* 가운데 정렬 */
+  margin-top: 15px; /* 위쪽 여백 조정 */
+}
+
+.start-button {
+  background-color: #e54851;
+  width: 307px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 15px 30px;
+  font-family: Roboto;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 48px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+  letter-spacing: -0.704px;
+}
+
+.start-button:hover {
+  background-color: #d43b4a;
+}

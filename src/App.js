@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import AddChild from './pages/AddChild';
+import MbtiMain from './pages/MbtiMain';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         {/* 프로필 생성 페이지*/}
         <Route path="/add-child" element={<AddChild />} />
+        {/* MBTI 검사 전 메인 페이지 */}
+        <Route path="/mbti/main" element={<MbtiMain />} />
       </Routes>
     </Router>
 
