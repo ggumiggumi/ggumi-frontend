@@ -14,7 +14,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
 }
 
 .ggumi-main-title {
@@ -35,7 +34,7 @@
 
 .welcome-sticker {
   position: fixed;
-  margin-top: 550px;
+  margin-top: 450px;
 }
 
 .login {
@@ -47,7 +46,7 @@
   border: black solid 2px;
   box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.5);
   cursor: pointer;
-  margin-top: 690px;
+  margin-top: 590px;
 }
 
 .kakao-login {
