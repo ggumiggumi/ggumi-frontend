@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Stylish&display=swap");
+
 .book-detail-container {
   display: flex;
   flex-direction: column;
@@ -19,13 +21,14 @@
   display: flex;
   flex-direction: column;
   width: 80%;
-  margin-top: 40px;
+  justify-content: space-between;
 }
 
 .top-row {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 30px;
 }
 
 .back-button {
@@ -45,12 +48,10 @@
   line-height: 48px;
 }
 
-.bottom-column {
-}
-
 .main-row-container {
   display: flex;
   flex-direction: row;
+  margin-top: 60px;
 }
 
 .left-column-container {
@@ -91,4 +92,51 @@
 .right-column-container {
   display: flex;
   flex-direction: column;
+  margin-left: 30px;
+}
+
+.book-title {
+  font-family: "Stylish", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 70px;
+  letter-spacing: -1.5px;
+}
+
+.book-info {
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: -0.5px;
+  color: #909090;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.book-text {
+  width: 70%;
+  background-color: rgba(255, 208, 0, 0.4);
+  border-radius: 0px 60px 60px 60px;
+  font-family: "Stylish", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 32px;
+  color: #1e1e1e;
+  padding: 30px;
+  line-height: 50px;
+  margin-bottom: 20px;
+}
+
+.read-button {
+  width: 275px;
+  height: 100px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  border: none;
+  background: #ff4a4a;
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
 }

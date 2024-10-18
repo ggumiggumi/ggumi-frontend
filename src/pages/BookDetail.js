@@ -28,10 +28,10 @@ const BookDetail = () => {
               </div>
               <div className="feedback-container">
                 <button className="like-button">
-                  <img src={unCheckedLike}></img>
+                  <img src={unCheckedLike} alt="좋아요"></img>
                 </button>
                 <button className="hate-button">
-                  <img src={unCheckedHate}></img>
+                  <img src={unCheckedHate} alt="싫어요"></img>
                 </button>
               </div>
             </div>
@@ -40,12 +40,10 @@ const BookDetail = () => {
               <div className="book-info">
                 글・김종원 | 유레카출판사 | 2024년 10월 18일
               </div>
-              <div className="book-text-container">
-                <div className="book-text">
-                  띵동, 행복한 하루가 찾아왔습니다! 다정하게 말하면 다정한
-                  하루를 살게 되고 행복하다고 외치면 그 순간, 모든 것이 행복의
-                  재료가 됩니다.
-                </div>
+              <div className="book-text">
+                띵동, 행복한 하루가 찾아왔습니다! 다정하게 말하면 다정한 하루를
+                살게 되고 행복하다고 외치면 그 순간, 모든 것이 행복의 재료가
+                됩니다.
               </div>
               <button className="read-button">독서하기</button>
             </div>
