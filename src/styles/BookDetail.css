@@ -38,6 +38,7 @@
   height: 48px;
   padding-block: 0px;
   padding-inline: 0px;
+  cursor: pointer;
 }
 
 .back-text {
@@ -82,11 +83,13 @@
 .like-button {
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 .hate-button {
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 .right-column-container {
@@ -139,4 +142,5 @@
   font-size: 40px;
   font-style: normal;
   font-weight: 600;
+  cursor: pointer;
 }
