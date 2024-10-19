@@ -18,7 +18,7 @@ function App() {
         <Route path="/add-child" element={<AddChild />} />
         {/* MBTI 검사 전 메인 페이지 */}
         <Route path="/mbti/main" element={<MbtiMain />} />
-        <Route path="/book-detail" element={<BookDetail />} />
+        <Route path="/book-detail/:bookId" element={<BookDetail />} />
       </Routes>
     </Router>
   );

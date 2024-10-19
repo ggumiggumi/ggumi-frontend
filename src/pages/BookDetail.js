@@ -1,12 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import backgroundImage from "../assets/new-background.png"; // 배경 이미지 경로
 import backArrow from "../assets/back-arrow.png";
 import bookImage from "../assets/temp-book-image.png";
 import unCheckedLike from "../assets/unchecked-like.png";
 import unCheckedHate from "../assets/unchecked-hate.png";
 import "../styles/BookDetail.css";
+import { useParams } from "react-router-dom";
+import { API_DOMAIN } from "../common/common";
 
 const BookDetail = () => {
+  const { bookId } = useParams();
+  const [bookDetails, setBookDetails] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const childId = 1;
+  useEffect(() => {
+    const fetchBookDetail = async () => {
+      try {
+        const response = await fetch(`${API_DOMAIN}/book-detail/${bookId}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ childId: childId }),
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch book details");
+        }
+
+        const result = await response.json();
+        const bookData = result.data;
+        console.log(bookData);
+        setBookDetails(bookData);
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchBookDetail();
+  }, [bookId, childId]);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
   return (
     <div
       className="book-detail-container"
@@ -36,15 +76,11 @@ const BookDetail = () => {
               </div>
             </div>
             <div className="right-column-container">
-              <div className="book-title">행복해 행복해 나도 너도</div>
+              <div className="book-title">{bookDetails.title}</div>
               <div className="book-info">
                 글・김종원 | 유레카출판사 | 2024년 10월 18일
               </div>
-              <div className="book-text">
-                띵동, 행복한 하루가 찾아왔습니다! 다정하게 말하면 다정한 하루를
-                살게 되고 행복하다고 외치면 그 순간, 모든 것이 행복의 재료가
-                됩니다.
-              </div>
+              <div className="book-text">{bookDetails.content}</div>
               <button className="read-button">독서하기</button>
             </div>
           </div>
