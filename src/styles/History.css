@@ -1,0 +1,118 @@
+.history-container {
+    width: 100vw;
+    height: 100vh;
+    min-width: 950px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.history-logo-container {
+    margin-left: 50px;
+}
+
+.history-logo-container img {
+    width: 200px;
+}
+
+.history-main-content {
+    width: 90%;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 0.9); /* 투명도 90% */
+    border-radius: 20px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.history-back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+}
+
+.history-title {
+    font-family: 'Cafe24 Ssurround';
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+.history-content-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-left: 30px;
+    position: relative; /* 타임라인 레이아웃을 위한 상대적인 위치 */
+    max-height: 80%; /* 적절한 최대 높이 설정 */
+    overflow-y: auto; /* 수직 스크롤 가능하도록 설정 */
+    overflow: hidden;
+}
+
+/* 타임라인을 위한 세로줄 스타일 */
+.timeline {
+    position: absolute;
+    left: -9px; /* 기록의 중앙에서 세로줄을 배치 */
+    width: 5px;
+    background-color: #000;
+    height: 100%;
+    top: 0;
+    margin-left: 15px;
+    border-radius: 5px;
+}
+
+/* 기록 카드 스타일 */
+.mbti-record {
+    position: relative;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    width: 80%;
+    margin-left: 30px; /* 세로줄 오른쪽에 기록이 오도록 조정 */
+}
+
+.mbti-record::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border: 3px solid #000;
+    border-radius: 50%;
+    left: -30px; /* 타임라인과 기록을 연결하는 작은 원 */
+    top: 20px;
+}
+
+/* 타임라인 좌측의 기록 텍스트 */
+.mbti-record div {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.mbti-history {
+    width: 60%;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.history-profile-image {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 40%;
+    margin-right: 150px;
+}
+
+.history-profile-image img {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}

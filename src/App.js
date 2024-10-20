@@ -6,6 +6,7 @@ import AddChild from "./pages/AddChild";
 import MbtiMain from "./pages/MbtiMain";
 import BookDetail from "./pages/BookDetail";
 import MainPage from './pages/MainPage';
+import History from './pages/Hisrcstory';
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
         <Route path="/book-detail/:bookId" element={<BookDetail />} />
         {/* 메인 페이지*/}
         <Route path="/main" element={<MainPage />} />
+        {/* 히스토리 페이지 */}
+        <Route path="/history" element={<History />} />
       </Routes>
     </Router>
   );
