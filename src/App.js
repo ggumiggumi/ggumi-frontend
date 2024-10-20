@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import AddChild from "./pages/AddChild";
 import MbtiMain from "./pages/MbtiMain";
 import BookDetail from "./pages/BookDetail";
+import MainPage from './pages/MainPage';
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
         {/* MBTI 검사 전 메인 페이지 */}
         <Route path="/mbti/main" element={<MbtiMain />} />
         <Route path="/book-detail/:bookId" element={<BookDetail />} />
+        {/* 메인 페이지*/}
+        <Route path="/main" element={<MainPage />} />
       </Routes>
     </Router>
   );
