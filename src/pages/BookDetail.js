@@ -15,6 +15,10 @@ import unCheckedHate from "../assets/unchecked-hate.png";
 const BookDetail = () => {
   const { bookId } = useParams();
 
+  // 추후에 자녀의 아이디를 받아서 사용
+  const childId = 1;
+
+  // 도서 상세 내용을 가져와 사용하기 위한 bookDetails (DTO 개념)
   const [bookDetails, setBookDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -23,9 +27,6 @@ const BookDetail = () => {
   const [isLiked, setIsLiked] = useState(false);
   const [isHated, setIsHated] = useState(false);
 
-  // 추후에 자녀의 아이디를 받아서 사용
-  const childId = 1;
-
   // 초기 feedback 상태 저장
   const [initialFeedback, setInitialFeedback] = useState({
     isLiked: false,
@@ -33,6 +34,7 @@ const BookDetail = () => {
   });
 
   useEffect(() => {
+    // 도서 상세 페이지를 가져오기 위한 API 연결
     const getBookDetail = async () => {
       try {
         const response = await fetch(`${API_DOMAIN}/book-detail/${bookId}`, {
@@ -76,7 +78,7 @@ const BookDetail = () => {
     getBookDetail();
   }, [bookId, childId]);
 
-  // 페이지를 벗어날 때 API 호출
+  // 페이지를 벗어날 때 API 호출 (뒤로가기, 다른 페이지 이동, 새로고침)
   const callCalculationAPI = async () => {
     try {
       // 처음에 좋아요, 현재 싫어요 또는 좋아요 체크 해제
@@ -94,8 +96,9 @@ const BookDetail = () => {
         if (!response.ok) {
           throw new Error("calculation-hate API 호출에 실패했습니다.");
         }
-        // 처음에 싫어요 또는 좋아요 체크 해제, 현재 좋아요
-      } else if (initialFeedback.isLiked === false && isLiked === true) {
+      }
+      // 처음에 싫어요 또는 좋아요 체크 해제, 현재 좋아요
+      else if (initialFeedback.isLiked === false && isLiked === true) {
         const response = await fetch(
           `${API_DOMAIN}/book-detail/${bookId}/calculation-like`,
           {
@@ -110,31 +113,42 @@ const BookDetail = () => {
           throw new Error("calculation-like API 호출에 실패했습니다.");
         }
       }
-      // 변화가 없으면 API를 호출하지 않음
     } catch (error) {
       console.error("calculation API 호출 중 오류 발생:", error);
+    } finally {
+      // feedback API 호출은 항상 실행 (피드백 정보를 RDB에 영구 저장하기 위함)
+      try {
+        const feedbackResponse = await fetch(
+          `${API_DOMAIN}/book-detail/${bookId}/feedback`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ childId: childId }),
+          }
+        );
+        if (!feedbackResponse.ok) {
+          throw new Error("feedback API 호출에 실패했습니다.");
+        }
+      } catch (error) {
+        console.error("feedback API 호출 중 오류 발생:", error);
+      }
     }
   };
 
   useEffect(() => {
-    // 새로고침 감지
+    // 새로고침 또는 페이지 벗어날 때 API 호출
     const handleBeforeUnload = (event) => {
+      callCalculationAPI(); // 페이지를 벗어날 때 호출
       event.preventDefault();
-      event.returnValue = ""; // Chrome에서는 이 값을 설정해야 알림이 표시됩니다.
-    };
-
-    // 페이지를 벗어날 때 API 호출
-    const handlePageHide = () => {
-      if (!window.event) return; // 새로고침이 아닌 경우에만 호출
-      callCalculationAPI();
+      event.returnValue = ""; // 이 코드는 Chrome에서 사용자 확인 메시지를 표시
     };
 
     window.addEventListener("beforeunload", handleBeforeUnload);
-    window.addEventListener("pagehide", handlePageHide);
 
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
-      window.removeEventListener("pagehide", handlePageHide);
     };
   }, [isLiked, isHated, initialFeedback]);
 
