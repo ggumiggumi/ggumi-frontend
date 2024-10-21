@@ -244,6 +244,12 @@ const BookDetail = () => {
     }
   };
 
+  // 날짜 포맷 변환 함수
+  const formatDate = (dateString) => {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return new Date(dateString).toLocaleDateString("ko-KR", options);
+  };
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
@@ -285,7 +291,7 @@ const BookDetail = () => {
               <div className="book-title">{bookDetails.title}</div>
               <div className="book-info">
                 글・{bookDetails.author} | {bookDetails.publisher} |{" "}
-                {bookDetails.createdAt}
+                {formatDate(bookDetails.createdAt)}
               </div>
               <div className="book-text">{bookDetails.content}</div>
               <button className="read-button">독서하기</button>
