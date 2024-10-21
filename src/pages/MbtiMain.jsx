@@ -1,9 +1,17 @@
 import React from "react";
 import backgroundImage from "../assets/background-yellow.png"; // 배경 이미지 경로
 import "../styles/MbtiMain.css";
+import { useNavigate } from "react-router-dom";
 import heartSticker from "../assets/ggumi-heart.png";
 
 const MbtiMain = () => {
+
+const navigate = useNavigate();
+
+const handleStarClick = () => {
+  navigate("/mbti/survey")
+}
+
   return (
     <div className="mbti-container" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="ggumi-logo-container">
@@ -19,7 +27,7 @@ const MbtiMain = () => {
         <h3 className="time-explanation">15 - 20분 소요</h3>
       </div>
       <div className="button-container">
-        <div className="start-button">시작해 볼까요?</div>
+        <div className="start-button" onClick={handleStarClick}>시작해 볼까요?</div>
       </div>
     </div>
   );

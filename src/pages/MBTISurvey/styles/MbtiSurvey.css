@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+
+.background-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-width: 800px;
+  height: auto;
+  background-color: #f9e67e; /* 배경색 */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.heart-logo {
+  width: 100px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.logo-title {
+  color: #e54851;
+  font-family: "Bagel Fat One", sans-serif;
+  font-size: 100px;
+  margin: 0;
+}
+
+.survey-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1081px;
+  height: auto;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+}
+
+.survey-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 567px;
+  height: auto;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.survey-title {
+  color: #31241c;
+  text-align: center;
+  font-family: Stylish;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -1.056px;
+  margin: 0;
+}
+
+.survey-title2 {
+  color: #fd7724;
+  font-family: Stylish;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -1.056px;
+  margin: 0;
+}
+
+.question-container {
+  display: flex;
+  flex-direction: column;
+  width: 861px;
+  margin-bottom: 70px;
+}
+
+.question-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white; /* 질문 박스 배경색 */
+  width: 861px;
+  height: auto;
+  border-radius: 20px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  padding: 20px;
+}
+
+.question {
+  color: #000;
+  font-family: Stylish;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 48px; /* 150% */
+  letter-spacing: -0.704px;
+  margin: 0;
+}
+
+.circle-container {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin: 10px 0; /* 위 아래 여백 */
+}
+
+.circle-label {
+  display: flex;
+  align-items: center;
+}
+
+input[type="radio"] {
+  display: none; /* 기본 라디오 버튼 숨기기 */
+}
+
+.first-circle,
+.second-circle,
+.third-circle,
+.fourth-circle,
+.fifth-circle {
+  border-radius: 50%; /* 원형 만들기 */
+  margin: 0 5px; /* 원 간격 조정 */
+  display: inline-block; /* 인라인 블록으로 설정 */
+}
+
+.first-circle {
+  width: 64px;
+  height: 64px;
+  background-color: #fffdec;
+  border: 2px solid #000; /* 테두리 색 */
+}
+
+.second-circle {
+  width: 55px;
+  height: 55px;
+  background-color: #fffdec; /* 배경색 */
+  border: 2px solid #000; /* 테두리 색 */
+}
+
+.third-circle {
+  width: 48px;
+  height: 48px;
+  background-color: #fffdec;
+  border: 2px solid #000; /* 테두리 색 */
+}
+
+.fourth-circle {
+  width: 55px;
+  height: 55px;
+  background-color: #fffdec; /* 배경색 */
+  border: 2px solid #000; /* 테두리 색 */
+}
+
+.fifth-circle {
+  width: 64px;
+  height: 64px;
+  background-color: #fffdec; /* 배경색 */
+  border: 2px solid #000; /* 테두리 색 */
+}
+
+/* 선택된 라디오 버튼에 대한 스타일 */
+input[type="radio"]:checked + .first-circle {
+  border: 2px solid black; /* 선택된 경우 테두리 색 변경 */
+  background-color: #ffcdba;
+}
+
+input[type="radio"]:checked + .second-circle {
+  border: 2px solid black; /* 선택된 경우 테두리 색 변경 */
+  background-color: #ffbaa0; /* 선택된 경우 테두리 색 변경 */
+}
+
+input[type="radio"]:checked + .third-circle {
+  border: 2px solid black; /* 선택된 경우 테두리 색 변경 */
+  background-color: #ff9d78; /* 선택된 경우 테두리 색 변경 */
+}
+
+input[type="radio"]:checked + .fourth-circle {
+  border: 2px solid black; /* 선택된 경우 테두리 색 변경 */
+  background-color: #ff8152; /* 선택된 경우 테두리 색 변경 */
+}
+
+input[type="radio"]:checked + .fifth-circle {
+  border: 2px solid black; /* 선택된 경우 테두리 색 변경 */
+  background-color: #ff6227; /* 선택된 경우 테두리 색 변경 */
+}
+
+.reaction-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 58%;
+  box-sizing: border-box;
+}
+
+.reaction-button {
+  color: #31241c;
+  text-align: center;
+  font-family: Stylish;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 48px; /* 160% */
+  letter-spacing: -0.66px;
+}
+
+.button-container {
+  
+}
+
+.start-button {
+  background-color: #e54851;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 15px 30px;
+  font-family: "Roboto", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 20px;
+}
+
+.start-button:hover {
+  background-color: #d43b4a; /* 호버 시 색 변화 */
+}
