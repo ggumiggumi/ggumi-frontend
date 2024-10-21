@@ -7,7 +7,7 @@ import MbtiMain from "./pages/MbtiMain";
 import MBTISurvey from "./pages/MBTISurvey/index";
 import BookDetail from "./pages/BookDetail";
 import MainPage from './pages/MainPage';
-import History from './pages/Hisrcstory';
+import History from './pages/History';
 
 function App() {
   return (
