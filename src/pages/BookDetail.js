@@ -157,7 +157,7 @@ const BookDetail = () => {
       if (isLiked) {
         // 좋아요 취소
         const response = await fetch(
-          `${API_DOMAIN}/book-detail/${bookId}/undo`,
+          `${API_DOMAIN}/book-detail/${bookId}/undo-like`,
           {
             method: "POST",
             headers: {
@@ -203,7 +203,7 @@ const BookDetail = () => {
       if (isHated) {
         // 싫어요 취소
         const response = await fetch(
-          `${API_DOMAIN}/book-detail/${bookId}/undo`,
+          `${API_DOMAIN}/book-detail/${bookId}/undo-hate`,
           {
             method: "POST",
             headers: {
@@ -269,7 +269,7 @@ const BookDetail = () => {
         <div className="bottom-column">
           <div className="main-row-container">
             <div className="left-column-container">
-              <div className="book-image">
+              <div className="book-detail-image">
                 <img src={bookImage} alt="책 표지"></img>
               </div>
               <div className="feedback-container">
@@ -288,7 +288,7 @@ const BookDetail = () => {
               </div>
             </div>
             <div className="right-column-container">
-              <div className="book-title">{bookDetails.title}</div>
+              <div className="book-detail-title">{bookDetails.title}</div>
               <div className="book-info">
                 글・{bookDetails.author} | {bookDetails.publisher} |{" "}
                 {formatDate(bookDetails.createdAt)}
