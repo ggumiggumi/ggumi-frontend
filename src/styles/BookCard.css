@@ -1,0 +1,42 @@
+.book-card {
+  
+  border-radius: 10px; /* 모서리 둥글게 */
+  overflow: hidden; /* 내용이 넘치면 숨김 */
+  width: 200px; /* 카드 너비 */
+  height: 280px; /* 카드 높이 고정 */
+  margin: 10px; /* 카드 간격 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  transition: transform 0.2s; /* 호버 시 애니메이션 */
+  background-color: white; /* 카드 배경색 흰색으로 설정 */
+}
+
+.book-card:hover {
+  transform: scale(1.05); /* 호버 시 확대 */
+}
+
+.book-image {
+  width: 100%; /* 카드의 너비에 맞추기 */
+  height: 100%; /* 비율 유지 */
+}
+
+.book-item {
+  max-width: 223px; /* 원하는 최대 너비 설정 */
+  overflow: hidden; /* 넘치는 텍스트 숨기기 */
+}
+
+.book-title {
+  text-align: center; /* 중앙 정렬 */
+  margin-top: 5px; /* 상단 여백 */
+  font-size: 20px; /* 폰트 크기 조정 */
+  color: #000;
+  font-family: NanumSquareRound;
+  font-weight: 800;
+  line-height: 48px; /* 160% */
+  letter-spacing: -0.66px;
+  
+  display: block; /* 블록 요소로 설정 */
+  width: 100%; /* 너비를 100%로 설정 (부모에 맞춤) */
+  overflow: hidden; /* 넘치는 텍스트 숨기기 */
+  white-space: nowrap; /* 텍스트를 한 줄로 표시 */
+  text-overflow: ellipsis; /* 넘치는 텍스트를 '...'로 표시 */
+}
