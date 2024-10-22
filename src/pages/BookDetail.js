@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { API_DOMAIN } from "../apis/api";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import "../styles/BookDetail.css";
 
-import bookImage from "../assets/temp-book-image.png";
 import backArrow from "../assets/back-arrow.png";
 import backgroundImage from "../assets/new-background.png";
 import CheckedLike from "../assets/checked-like.png";
@@ -14,6 +13,7 @@ import unCheckedHate from "../assets/unchecked-hate.png";
 
 const BookDetail = () => {
   const { bookId } = useParams();
+  const navigate = useNavigate();
 
   // 추후에 자녀의 아이디를 받아서 사용
   const childId = 1;
@@ -135,6 +135,13 @@ const BookDetail = () => {
         console.error("feedback API 호출 중 오류 발생:", error);
       }
     }
+  };
+
+  // 뒤로가기 버튼 클릭 시 호출되는 함수
+  const handleBackButtonClick = async () => {
+    // API 호출을 먼저 실행한 후 메인 페이지로 이동
+    await callCalculationAPI();
+    navigate("/main"); // 메인 페이지로 이동
   };
 
   useEffect(() => {
@@ -261,7 +268,8 @@ const BookDetail = () => {
       <div className="white-background"></div>
       <div className="main-column-container">
         <div className="top-row">
-          <button className="back-button">
+          <button className="back-button" onClick={handleBackButtonClick}>
+            {/* 클릭 시 메인 페이지로 이동 */}
             <img src={backArrow} alt="뒤로가기"></img>
           </button>
           <div className="back-text">뒤로가기</div>
@@ -270,7 +278,8 @@ const BookDetail = () => {
           <div className="main-row-container">
             <div className="left-column-container">
               <div className="book-detail-image">
-                <img src={bookImage} alt="책 표지"></img>
+                {/* bookDetails.book_image가 있으면 사용, 없으면 기본 이미지 사용 */}
+                <img src={bookDetails.bookImage} alt="책 표지"></img>
               </div>
               <div className="feedback-container">
                 <button className="like-button" onClick={handleLike}>
