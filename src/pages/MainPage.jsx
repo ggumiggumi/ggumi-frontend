@@ -61,6 +61,11 @@ function MainPage() {
           books={TopBooks}
           changePage={changePage}
         />
+        <Section
+          title="친구들에게 인기있는 책 !"
+          books={TopBooks}
+          changePage={changePage}
+        />
       </div>
       <Footer />
     </>
