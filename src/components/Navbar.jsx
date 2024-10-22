@@ -15,8 +15,20 @@ const Navbar = ({ onSearch }) => {
     setIsMenuOpen((prev) => !prev);
   };
 
-  const handleMenuItemClick = () => {
-    setIsMenuOpen(false); // 메뉴 닫기
+  const handleToProfileClick = () => {
+    navigate(`/`);
+  };
+  const handleToMBTIClick = () => {
+    navigate(`/mbti/main`);
+  };
+  const handleToReadMBTIClick = () => {
+    navigate(`/`);
+  };
+  const handleToHistoryClick = () => {
+    navigate(`/history`);
+  };
+  const handleToLogoutClick = () => {
+    navigate(`/login`);
   };
 
   const handleSearch = (e) => {
@@ -77,11 +89,11 @@ const Navbar = ({ onSearch }) => {
         {isMenuOpen && (
           <div className="submenu">
             <ul>
-              <li onClick={handleMenuItemClick}>프로필 관리</li>
-              <li onClick={handleMenuItemClick}>MBTI 검사</li>
-              <li onClick={handleMenuItemClick}>자녀성향 조회</li>
-              <li onClick={handleMenuItemClick}>히스토리 조회</li>
-              <li onClick={handleMenuItemClick}>로그아웃</li>
+              <li onClick={handleToProfileClick}>프로필 관리</li>
+              <li onClick={handleToMBTIClick}>MBTI 검사</li>
+              <li onClick={handleToReadMBTIClick}>자녀성향 조회</li>
+              <li onClick={handleToHistoryClick}>히스토리 조회</li>
+              <li onClick={handleToLogoutClick}>로그아웃</li>
             </ul>
           </div>
         )}
