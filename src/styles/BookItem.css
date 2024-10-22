@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+
+.searched-book-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  min-width: 900px;
+  width: auto;
+  height: auto;
+  background-color: #ffffff; /* 배경색 */
+}
+
+.searched-book-image {
+  width: 30%;
+  height: 25vh;
+  flex-shrink: 0;
+}
+
+.searched-book-details {
+  margin-left: 60px;
+  margin-bottom: 150px;
+  text-align: justify;
+  text-align-last: left;
+}
+
+.searched-book-title {
+  color: #003fbc;
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.searched-book-author {
+  color: #000;
+  font-family: Inter;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}

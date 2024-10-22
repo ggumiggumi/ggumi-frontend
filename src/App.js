@@ -8,6 +8,7 @@ import MBTISurvey from "./pages/MBTISurvey/index";
 import BookDetail from "./pages/BookDetail";
 import MainPage from './pages/MainPage';
 import History from './pages/History';
+import Search from './pages/search/index';
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
         <Route path="/main" element={<MainPage />} />
         {/* 히스토리 페이지 */}
         <Route path="/history" element={<History />} />
+        {/* 도서 검색 페이지 */}
+        <Route path="/search" element={<Search />} />
       </Routes>
     </Router>
   );
