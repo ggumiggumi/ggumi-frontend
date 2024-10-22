@@ -23,6 +23,7 @@ const Navbar = ({ onSearch }) => {
     e.preventDefault(); // 기본 폼 제출 방지
     if (onSearch) {
       onSearch(keyword); // 검색어를 부모 컴포넌트로 전달
+      navigate(`/search?keyword=${encodeURIComponent(keyword)}`);
     }
   };
 
