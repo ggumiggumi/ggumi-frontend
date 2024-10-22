@@ -6,6 +6,7 @@ import BookItem from "../../components/BookItem";
 import backgroundImage from "../../assets/background-yellow.png";
 import axios from "axios";
 import "./styles/Search.css";
+import { SERVER_DOMAIN } from "../../apis/api.js";
 
 const Search = () => {
   const [books, setBooks] = useState([]);
@@ -16,7 +17,7 @@ const Search = () => {
     const token = localStorage.getItem("accessToken");
     try {
       const response = await axios.get(
-        `http://13.125.110.207:8080/api/books/search?keyword=${keyword}`,
+        `${SERVER_DOMAIN}/api/books/search?keyword=${keyword}`,
         {
           headers: {
             accept: "*/*",
@@ -54,7 +55,8 @@ const Search = () => {
       >
         <div className="searched-book-container">
           <h2 className="result-message">
-            '{keyword}' 검색 결과 총 {books.length}건
+            <span style={{ color: "#FF4A4A" }}>'{keyword}'</span> 검색 결과 총{" "}
+            <strong>{books.length}</strong>건
           </h2>
           <div className="book-list">
             {books.length === 0 ? (
