@@ -47,7 +47,8 @@ const Navbar = ({ onSearch }) => {
 
   return (
     <div className="navbar">
-      <div className="navbar-left">
+      <div className="navbar-left"></div>
+      <div className="navbar-mid">
         <div
           className="logo"
           onClick={handleLogoClick}

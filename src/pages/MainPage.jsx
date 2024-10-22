@@ -14,13 +14,11 @@ function MainPage() {
   const [TopBooks, setTopBooks] = useState([]); // 추천 도서 상태 관리
   const [page, setPage] = useState(0); // 현재 페이지 번호 상태 관리
 
-  const itemsPerPage = 4; // 페이지당 보여줄 도서 수
   const childId = 1; // 예시로 childId=1 사용
 
   // 메인 페이지가 로드될 때 API를 호출하여 데이터 가져오기
   useEffect(() => {
     const fetchBooks = async () => {
-      setLoading(true); // 로딩 시작
       try {
         const response = await fetch(`${API_DOMAIN}/main/books?page=${page}`, {
           method: "POST",
@@ -33,10 +31,8 @@ function MainPage() {
         const result = await response.json();
 
         setTopBooks(result.data.books); // 추천 도서 정보 저장
-        setLoading(false); // 로딩 완료
       } catch (error) {
         console.error("도서 정보를 가져오는 중 에러 발생:", error);
-        setLoading(false); // 로딩 완료
       }
     };
 
@@ -63,9 +59,7 @@ function MainPage() {
         <Section
           title="이런 책은 어때요?"
           books={TopBooks}
-          page={page}
           changePage={changePage}
-          itemsPerPage={itemsPerPage}
         />
       </div>
       <Footer />
@@ -73,7 +67,7 @@ function MainPage() {
   );
 }
 
-const Section = ({ title, books = [], page, changePage, itemsPerPage }) => {
+const Section = ({ title, books = [], changePage }) => {
   const navigate = useNavigate();
 
   // 도서 상세 페이지로 이동하는 함수
