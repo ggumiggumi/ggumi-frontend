@@ -12,11 +12,14 @@ function MainPage() {
   const navigate = useNavigate();
 
   const [TopBooks, setTopBooks] = useState([]); // 추천 도서 상태 관리
-  const [page, setPage] = useState(0); // 현재 페이지 번호 상태 관리
+  const [PopularBooks, setPopularBooks] = useState([]); // 좋아요 많은 도서 상태 관리
+  const [page, setPage] = useState(0); // 추천 도서 페이지 번호
+  const [popularityPage, setPopularityPage] = useState(0); // 좋아요 도서 페이지 번호
+  const [totalPages, setTotalPages] = useState(0); // 총 페이지 수
 
   const childId = 1; // 예시로 childId=1 사용
 
-  // 메인 페이지가 로드될 때 API를 호출하여 데이터 가져오기
+  // 메인 페이지가 로드될 때 추천 도서 API를 호출하여 데이터 가져오기
   useEffect(() => {
     const fetchBooks = async () => {
       try {
@@ -39,12 +42,46 @@ function MainPage() {
     fetchBooks();
   }, [page]); // page가 변경될 때마다 API 호출
 
-  // 페이지 변경 로직
+  // 메인 페이지가 로드될 때 좋아요 순 도서 API를 호출하여 데이터 가져오기
+  useEffect(() => {
+    const fetchPopularBooks = async () => {
+      try {
+        const response = await fetch(
+          `${API_DOMAIN}/main/popularity?page=${popularityPage}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        const result = await response.json();
+        setPopularBooks(result.data.books); // 좋아요 순 도서 정보 저장
+        setTotalPages(result.data.totalPages); // 총 페이지 수 저장
+      } catch (error) {
+        console.error("좋아요 순 도서 정보를 가져오는 중 에러 발생:", error);
+      }
+    };
+
+    fetchPopularBooks();
+  }, [popularityPage]); // popularityPage가 변경될 때마다 API 호출
+
+  // 추천 도서 페이지 변경 로직
   const changePage = (direction) => {
     if (direction === "next") {
       setPage((prevPage) => (prevPage + 1) % 2); // 다음 페이지로
     } else if (direction === "prev") {
       setPage((prevPage) => (prevPage + 1) % 2); // 이전 페이지로
+    }
+  };
+
+  // 좋아요 순 도서 페이지 변경 로직
+  const changePopularityPage = (direction) => {
+    if (direction === "next" && popularityPage < totalPages - 1) {
+      setPopularityPage((prevPopularityPage) => prevPopularityPage + 1); // 다음 페이지로
+    } else if (direction === "prev" && popularityPage > 0) {
+      setPopularityPage((prevPopularityPage) => prevPopularityPage - 1); // 이전 페이지로
     }
   };
 
@@ -56,15 +93,20 @@ function MainPage() {
     <>
       <Navbar onSearch={handleSearch} />
       <div className="content-container">
+        {/* 추천 도서 Section */}
         <Section
           title="이런 책은 어때요?"
           books={TopBooks}
-          changePage={changePage}
+          changePage={changePage} // 추천 도서의 페이지 변경 로직
         />
+
+        {/* 좋아요 순 도서 Section */}
         <Section
           title="친구들에게 인기있는 책 !"
-          books={TopBooks}
-          changePage={changePage}
+          books={PopularBooks}
+          changePage={changePopularityPage} // 좋아요 순 페이지 변경 함수 연결
+          popularityPage={popularityPage} // 좋아요 페이지 정보 전달
+          totalPages={totalPages} // 총 페이지 정보 전달
         />
       </div>
       <Footer />
@@ -72,7 +114,13 @@ function MainPage() {
   );
 }
 
-const Section = ({ title, books = [], changePage }) => {
+const Section = ({
+  title,
+  books = [],
+  changePage,
+  popularityPage,
+  totalPages,
+}) => {
   const navigate = useNavigate();
 
   // 도서 상세 페이지로 이동하는 함수
@@ -84,12 +132,24 @@ const Section = ({ title, books = [], changePage }) => {
     <>
       <div className="title">{title}</div>
       <div className="book-container">
+        {/* 이전 버튼: popularityPage가 있을 때만 disabled 처리 */}
         <img
-          className={`prev-button`}
+          className={`prev-button ${
+            popularityPage !== undefined && popularityPage === 0
+              ? "disabled"
+              : ""
+          }`}
           src={prevPageIcon}
-          onClick={() => changePage("prev")} // 이전 페이지로 이동
+          onClick={() => {
+            if (popularityPage !== undefined) {
+              popularityPage > 0 && changePage("prev"); // 좋아요 순 도서일 때
+            } else {
+              changePage("prev"); // 추천 도서일 때
+            }
+          }}
           alt="이전"
         />
+
         {books.length > 0 ? (
           books.map((book, index) => (
             <div
@@ -104,10 +164,22 @@ const Section = ({ title, books = [], changePage }) => {
         ) : (
           <div>도서 정보가 없습니다.</div> // books가 비어있을 경우 출력할 메시지
         )}
+
+        {/* 다음 버튼: popularityPage와 totalPages가 있을 때만 disabled 처리 */}
         <img
-          className={`next-button`}
+          className={`next-button ${
+            popularityPage !== undefined && popularityPage >= totalPages - 1
+              ? "disabled"
+              : ""
+          }`}
           src={nextPageIcon}
-          onClick={() => changePage("next")} // 다음 페이지로 이동
+          onClick={() => {
+            if (popularityPage !== undefined) {
+              popularityPage < totalPages - 1 && changePage("next"); // 좋아요 순 도서일 때
+            } else {
+              changePage("next"); // 추천 도서일 때
+            }
+          }}
           alt="다음"
         />
       </div>

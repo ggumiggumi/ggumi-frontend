@@ -6,7 +6,7 @@ import BookItem from "../../components/BookItem";
 import backgroundImage from "../../assets/background-yellow.png";
 import axios from "axios";
 import "./styles/Search.css";
-import { SERVER_DOMAIN } from "../../apis/api.js";
+import { API_DOMAIN } from "../../apis/api.js";
 
 const Search = () => {
   const [books, setBooks] = useState([]);
@@ -17,7 +17,7 @@ const Search = () => {
     const token = localStorage.getItem("accessToken");
     try {
       const response = await axios.get(
-        `${SERVER_DOMAIN}/api/books/search?keyword=${keyword}`,
+        `${API_DOMAIN}/books/search?keyword=${keyword}`,
         {
           headers: {
             accept: "*/*",
