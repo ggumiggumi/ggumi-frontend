@@ -59,7 +59,7 @@
 .timeline {
     position: absolute;
     left: -9px; /* 기록의 중앙에서 세로줄을 배치 */
-    width: 5px;
+    width: 2px;
     background-color: #000;
     height: 100%;
     top: 0;
