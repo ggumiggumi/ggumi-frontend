@@ -9,13 +9,14 @@ import BookDetail from "./pages/BookDetail";
 import MainPage from "./pages/MainPage";
 import History from "./pages/History";
 import Search from "./pages/search/index";
+import Callback from "./pages/AuthCallback";
 
 function App() {
   return (
     <Router>
       <Routes>
         {/* 프로필 선택 페이지 */}
-        <Route path="/" element={<Home />} />
+        <Route path="/profiles" element={<Home />} />
         {/* 로그인 페이지 */}
         <Route path="/login" element={<Login />} />
         {/* 프로필 생성 페이지*/}
@@ -32,6 +33,8 @@ function App() {
         <Route path="/history" element={<History />} />
         {/* 도서 검색 페이지 */}
         <Route path="/search" element={<Search />} />
+        {/* 콜백 페이지 */}
+        <Route path="/auth/callback" element={<Callback />} />
       </Routes>
     </Router>
   );

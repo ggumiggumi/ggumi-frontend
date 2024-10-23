@@ -16,7 +16,7 @@ const Navbar = ({ onSearch }) => {
   };
 
   const handleToProfileClick = () => {
-    navigate(`/`);
+    navigate(`/profiles`);
   };
   const handleToMBTIClick = () => {
     navigate(`/mbti/main`);
