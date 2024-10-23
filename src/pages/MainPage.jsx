@@ -2,126 +2,49 @@ import "../styles/MainPage.css";
 import Navbar from "../components/Navbar.jsx";
 import BookCard from "../components/BookCard";
 import Footer from "../components/Footer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import prevPageIcon from "../assets/prev_btn.png";
 import nextPageIcon from "../assets/next_btn.png";
+import { API_DOMAIN } from "../apis/api.js";
 
 function MainPage() {
   const navigate = useNavigate();
-  const recommend_books = [
-    {
-      title: "진짜 진짜 슬퍼",
-      image:
-        "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791189922566.jpg",
-    },
-    {
-      title: "행복해 행복해 나도 너도",
-      image:
-        "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791198774811.jpg",
-    },
-    {
-      title: "날개는 없지만",
-      image:
-        "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788955827729.jpg",
-    },
-    {
-      title: "기쁜 눈물",
-      image:
-        "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791198655707.jpg",
-    },
-    {
-      title: "진짜 진짜 행복해",
-      image:
-        "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791189922535.jpg",
-    },
-    {
-      title: "진짜 진짜 놀라워",
-      image:
-        "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791189922559.jpg",
-    },
-    {
-      title: "네 기분은 어떤 색깔이니?",
-      image:
-        "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791158363925.jpg",
-    },
-    {
-      title: "용기를 내, 비닐장갑!",
-      image:
-        "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791158362249.jpg",
-    },
-  ];
 
-  const popular_books = [
-    {
-      title: "캐치티니핑 캐릭터도감",
-      image:
-        "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/8809854312855.jpg",
-    },
-    {
-      title: "감정 호텔",
-      image:
-        "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791158364519.jpg",
-    },
-    {
-      title: "몽글몽글 편의점",
-      image:
-        "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791158364823.jpg",
-    },
-    {
-      title: "자개장 할머니",
-      image:
-        "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791193207956.jpg",
-    },
-    {
-      title: "오늘, 너에게",
-      image:
-        "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788901287263.jpg",
-    },
-    {
-      title: "꽁꽁꽁 댕댕",
-      image:
-        "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791158364724.jpg",
-    },
-    {
-      title: "POP-UP 움직이는 달",
-      image:
-        "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/7070024001148.jpg",
-    },
-    {
-      title: "달리고 조심해!",
-      image:
-        "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791190352642.jpg",
-    },
-  ];
+  const [TopBooks, setTopBooks] = useState([]); // 추천 도서 상태 관리
+  const [page, setPage] = useState(0); // 현재 페이지 번호 상태 관리
 
-  const itemsPerPage = 4;
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [currentPopularIndex, setCurrentPopularIndex] = useState(0);
+  const childId = 1; // 예시로 childId=1 사용
 
-  const changePage = (type, direction) => {
-    if (type === "recommend") {
-      setCurrentIndex((prevIndex) => {
-        const newIndex =
-          direction === "next"
-            ? prevIndex + itemsPerPage
-            : prevIndex - itemsPerPage;
-        return Math.max(
-          0,
-          Math.min(newIndex, recommend_books.length - itemsPerPage)
-        );
-      });
-    } else if (type === "popular") {
-      setCurrentPopularIndex((prevIndex) => {
-        const newIndex =
-          direction === "next"
-            ? prevIndex + itemsPerPage
-            : prevIndex - itemsPerPage;
-        return Math.max(
-          0,
-          Math.min(newIndex, popular_books.length - itemsPerPage)
-        );
-      });
+  // 메인 페이지가 로드될 때 API를 호출하여 데이터 가져오기
+  useEffect(() => {
+    const fetchBooks = async () => {
+      try {
+        const response = await fetch(`${API_DOMAIN}/main/books?page=${page}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ childId }), // childId를 요청 본문에 포함
+        });
+
+        const result = await response.json();
+
+        setTopBooks(result.data.books); // 추천 도서 정보 저장
+      } catch (error) {
+        console.error("도서 정보를 가져오는 중 에러 발생:", error);
+      }
+    };
+
+    fetchBooks();
+  }, [page]); // page가 변경될 때마다 API 호출
+
+  // 페이지 변경 로직
+  const changePage = (direction) => {
+    if (direction === "next") {
+      setPage((prevPage) => (prevPage + 1) % 2); // 다음 페이지로
+    } else if (direction === "prev") {
+      setPage((prevPage) => (prevPage + 1) % 2); // 이전 페이지로
     }
   };
 
@@ -135,19 +58,13 @@ function MainPage() {
       <div className="content-container">
         <Section
           title="이런 책은 어때요?"
-          books={recommend_books}
-          currentIndex={currentIndex}
+          books={TopBooks}
           changePage={changePage}
-          type="recommend"
-          itemsPerPage={itemsPerPage}
         />
         <Section
-          title="친구들에게 인기있는 책"
-          books={popular_books}
-          currentIndex={currentPopularIndex}
+          title="친구들에게 인기있는 책 !"
+          books={TopBooks}
           changePage={changePage}
-          type="popular"
-          itemsPerPage={itemsPerPage}
         />
       </div>
       <Footer />
@@ -155,43 +72,47 @@ function MainPage() {
   );
 }
 
-const Section = ({
-  title,
-  books,
-  currentIndex,
-  changePage,
-  type,
-  itemsPerPage,
-}) => (
-  <>
-    <div className="title">{title}</div>
-    <div className="book-container">
-      <img
-        className={`prev-button ${currentIndex === 0 ? "disabled" : ""}`}
-        src={prevPageIcon}
-        onClick={() => currentIndex > 0 && changePage(type, "prev")}
-        alt="이전"
-      />
-      {books
-        .slice(currentIndex, currentIndex + itemsPerPage)
-        .map((book, index) => (
-          <div key={index} className="book-item">
-            <BookCard title={book.title} image={book.image} />
-            <div className="book-title">{book.title}</div>
-          </div>
-        ))}
-      <img
-        className={`next-button ${
-          currentIndex + itemsPerPage >= books.length ? "disabled" : ""
-        }`}
-        src={nextPageIcon}
-        onClick={() =>
-          currentIndex + itemsPerPage < books.length && changePage(type, "next")
-        }
-        alt="다음"
-      />
-    </div>
-  </>
-);
+const Section = ({ title, books = [], changePage }) => {
+  const navigate = useNavigate();
+
+  // 도서 상세 페이지로 이동하는 함수
+  const goToBookDetail = (bookId) => {
+    navigate(`/book-detail/${bookId}`);
+  };
+
+  return (
+    <>
+      <div className="title">{title}</div>
+      <div className="book-container">
+        <img
+          className={`prev-button`}
+          src={prevPageIcon}
+          onClick={() => changePage("prev")} // 이전 페이지로 이동
+          alt="이전"
+        />
+        {books.length > 0 ? (
+          books.map((book, index) => (
+            <div
+              key={index}
+              className="book-item"
+              onClick={() => goToBookDetail(book.id)} // 클릭하면 상세 페이지로 이동
+            >
+              <BookCard title={book.title} image={book.book_image} />
+              <div className="book-title">{book.title}</div>
+            </div>
+          ))
+        ) : (
+          <div>도서 정보가 없습니다.</div> // books가 비어있을 경우 출력할 메시지
+        )}
+        <img
+          className={`next-button`}
+          src={nextPageIcon}
+          onClick={() => changePage("next")} // 다음 페이지로 이동
+          alt="다음"
+        />
+      </div>
+    </>
+  );
+};
 
 export default MainPage;

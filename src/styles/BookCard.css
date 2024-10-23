@@ -1,5 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+
 .book-card {
-  
   border-radius: 10px; /* 모서리 둥글게 */
   overflow: hidden; /* 내용이 넘치면 숨김 */
   width: 200px; /* 카드 너비 */
@@ -22,18 +23,19 @@
 .book-item {
   max-width: 223px; /* 원하는 최대 너비 설정 */
   overflow: hidden; /* 넘치는 텍스트 숨기기 */
+  cursor: pointer;
 }
 
 .book-title {
   text-align: center; /* 중앙 정렬 */
   margin-top: 5px; /* 상단 여백 */
   font-size: 20px; /* 폰트 크기 조정 */
-  color: #000;
-  font-family: NanumSquareRound;
-  font-weight: 800;
+  color: #3e3e3e;
+  font-family: "Jua", sans-serif;
+  font-weight: 400;
   line-height: 48px; /* 160% */
   letter-spacing: -0.66px;
-  
+
   display: block; /* 블록 요소로 설정 */
   width: 100%; /* 너비를 100%로 설정 (부모에 맞춤) */
   overflow: hidden; /* 넘치는 텍스트 숨기기 */
