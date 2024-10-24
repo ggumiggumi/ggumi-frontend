@@ -28,6 +28,8 @@ const Navbar = ({ onSearch }) => {
     navigate(`/history`);
   };
   const handleToLogoutClick = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
     navigate(`/login`);
   };
 
