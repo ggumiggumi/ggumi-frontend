@@ -20,7 +20,7 @@ const Search = () => {
         `${API_DOMAIN}/books/search?keyword=${keyword}`,
         {
           headers: {
-            accept: "*/*",
+            // accept: "*/*",
             Authorization: `Bearer ${token}`,
           },
         }
