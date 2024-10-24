@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; // axios 추가
+import axios from 'axios';
 import '../styles/History.css';
 import backgroundImage from '../assets/new-background.png';
 import logoHistory from '../assets/logo-history.png';
@@ -26,7 +26,7 @@ const History = () => {
                     '자녀의 MBTI 변화를 기록하고 싶다면 MBTI 검사를 진행해주세요. 현재 자녀의 MBTI 변화 기록이 없습니다!'
                 );
                 if (confirmNavigate) {
-                    navigate('/mbti/survey');
+                    navigate('/mbti/main');
                 } else {
                     navigate(-1);
                 }
