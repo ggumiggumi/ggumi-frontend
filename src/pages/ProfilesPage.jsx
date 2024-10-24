@@ -4,7 +4,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import ProfileCard from '../components/ProfileCard';
 import '../styles/ProfileSelection.css';
-import backgroundImage from '../assets/background-yellow.png';
+import backgroundImage from '../assets/new-background.png';
 import addProfile from '../assets/add-profile.png';
 import characterImage from '../assets/home-ggummi.png';
 import { API_DOMAIN } from '../apis/api.js';
@@ -46,6 +46,7 @@ const ProfilesPage = () => {
                     "Content-Type": "application/json",
                 },
             });
+            navigate('/add-child');
         } catch (error) {
             alert('자녀 프로필을 더 이상 생성할 수 없습니다.');
         }
