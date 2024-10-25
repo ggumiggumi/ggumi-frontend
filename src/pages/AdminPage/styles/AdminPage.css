@@ -1,0 +1,138 @@
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.context-container {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-info-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.book-cover-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+    justify-content: space-evenly;
+}
+
+.book-cover {
+    width: 200px;
+    height: 300px;
+    border: 2px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: #f4f4f4;
+}
+
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.placeholder {
+    font-size: 16px;
+    color: #888;
+}
+
+.upload-button input {
+    display: none;
+}
+
+.upload-button {
+    background-color: #f9a825;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.book-details-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.book-detail {
+    display: flex;
+    align-items: center; /* Aligns label and input vertically */
+    margin-bottom: 10px; /* Space between each detail */
+}
+
+.book-detail label {
+    margin-right: 10px; /* Space between label and input */
+    font-weight: bold;
+}
+
+.book-detail input,
+.book-details-container textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 250px;
+}
+
+.mbti-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.mbti-options {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.mbti-input {
+    display: flex;
+    align-items: center;
+}
+
+.mbti-input input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-left: 5px;
+    width: 42px;
+}
+
+.add-book-button {
+    margin-top: 30px;
+    background-color: #ff7043;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+
+.mbti-input input::placeholder {
+    color: #888;
+    opacity: 1;  
+}
+
+.mbti-input input{
+    padding: 10px; 
+}

@@ -11,6 +11,7 @@ import MainPage from "./pages/MainPage";
 import History from "./pages/History";
 import Search from "./pages/search/index";
 import Callback from "./pages/AuthCallback";
+import AdminPage from "./pages/AdminPage";
 
 function App() {
   return (
@@ -38,6 +39,8 @@ function App() {
         <Route path="/search" element={<Search />} />
         {/* 콜백 페이지 */}
         <Route path="/auth/callback" element={<Callback />} />
+        {/* 관리자 페이지 */}
+        <Route path="/admin/add-book" element={<AdminPage />} />
       </Routes>
     </Router>
   );
