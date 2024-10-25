@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import '../styles/AddChild.css';
 import backgroundImage from '../assets/new-background.png';
+import { API_DOMAIN } from '../apis/api.js';
 
 const profiles = [
     { id: 1, name: '무너' },
@@ -13,13 +16,50 @@ const AddChild = () => {
     const [name, setName] = useState('');
     const [gender, setGender] = useState('남아');
     const [birthdate, setBirthdate] = useState('');
+    const navigate = useNavigate();
 
     const handleSelectProfile = (profile) => {
         setSelectedProfile(profile);
     };
 
-    const handleCreateProfile = () => {
+    const handleCreateProfile = async () => {
+        
+        if (!name.trim()) {
+            alert('이름을 입력해주세요.');
+            return;
+        }
+        if (!birthdate) {
+            alert('생년월일을 입력해주세요.');
+            return;
+        }
+    
+        const accessToken = localStorage.getItem('accessToken');
+        try {
+            // 생년월일을 서버에서 요구하는 형식으로 변환 (예: "YYYY-MM-DD")
+            const formattedBirthdate = new Date(birthdate)
+                .toISOString()
+                .split('T')[0];
 
+            // 프로필 데이터를 백엔드로 전송
+            const response = await axios.post(
+                `${API_DOMAIN}/children`, {
+                    name: name,
+                    birthday: formattedBirthdate,
+                    profileCode: selectedProfile.id,
+                    gender: gender === '남아' ? 'MALE' : 'FEMALE', // 백엔드에서 기대하는 `Gender` 값에 맞추기
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                        'Content-Type': 'application/json',
+                    },
+                }
+            );
+            alert('자녀 프로필이 성공적으로 생성되었습니다.');
+            navigate('/profiles');
+        } catch (error) {
+            alert('프로필 생성에 실패했습니다. 다시 시도해주세요.');
+        }
     };
 
     return (
