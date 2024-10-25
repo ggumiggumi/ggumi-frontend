@@ -1,6 +1,7 @@
 import '../styles/MbtiResultPage.css';
 
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 import profileIcon from "../assets/profile-code1.png";
 import deleteBtn from '../assets/delete_btn.png';
@@ -9,7 +10,9 @@ import homeBtn from '../assets/home_btn.png';
 
 function MbtiResultPage() {
 
-    // mbti 점수 데이터
+    const navigate = useNavigate();
+
+    // 데이터 수신 - mbti 점수 데이터
     const mbti_data = [
         { E: 12, I: 88 },
         { S: 73, N: 27 },
@@ -17,9 +20,13 @@ function MbtiResultPage() {
         { P: 50, J: 50 },
     ];
 
+    // 데이터 수신 - 아이 이름, MBTI, MBTI 설명 
     const name = '홍길동';
     const mbtiType = 'INTJ';
     const mbtiDesc = '전략가';
+
+    // 데이터 수신 - MBTI 태그 정보
+    const mbtiTags = ['#목표 지향적', '#논리적 사고', '#조용한 관찰자'];
 
     // 라벨 정보
     const mbti_labels = [
@@ -29,13 +36,28 @@ function MbtiResultPage() {
         { label: '전술', leftLabel: '판단형', rightLabel: '인식형' },
     ];
 
-    // MBTI 태그 정보
-    const mbtiTags = ['#목표 지향적', '#논리적 사고', '#조용한 관찰자'];
+    const handleToMainPage = () => {
+        navigate("/main");
+    };
+
+    
+
+    const deleteReqeust = () => {
+
+        const isConfirmed = window.confirm('진단 데이터를 삭제하시겠습니까?');
+    
+        if (isConfirmed) {
+            // 삭제 요청을 보내는 로직을 여기에 추가
+            navigate("/main"); // 삭제 후 메인 페이지로 이동
+        }
+    };
+
+    
 
     return (
         <div className="mbti-result-page">
 
-            <div className="logo-section">꾸미</div>
+            <div className="logo-section" onClick={handleToMainPage} style={{ cursor: "pointer" }}>꾸미</div>
 
             <div className="info-section">
                 <div className="info-title">{name}의 성향 정보</div>
@@ -92,8 +114,8 @@ function MbtiResultPage() {
         
             {/* 버튼 섹션 */}
             <div className="button-section">
-                <img className="delete-button" src={deleteBtn} alt="삭제 버튼" />
-                <img className="home-button" src={homeBtn} alt="홈 버튼" />
+                <img className="delete-button" onClick={deleteReqeust} src={deleteBtn} alt="삭제 버튼" />
+                <img className="home-button" onClick={handleToMainPage} src={homeBtn} alt="홈 버튼" />
             </div>
            
         </div>
