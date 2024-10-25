@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import AddChild from "./pages/AddChild";
 import MbtiMain from "./pages/MbtiMain";
 import MBTISurvey from "./pages/MBTISurvey/index";
+import MbtiResultPage from "./pages/MbtiResultPage";
 import BookDetail from "./pages/BookDetail";
 import MainPage from "./pages/MainPage";
 import History from "./pages/History";
@@ -25,6 +26,8 @@ function App() {
         <Route path="/mbti/main" element={<MbtiMain />} />
         {/* MBTI 검사 페이지 */}
         <Route path="/mbti/survey" element={<MBTISurvey />} />
+        {/* MBTI 검사 결과 페이지 */}
+        <Route path="/mbti/result" element={<MbtiResultPage />} />
         {/* 도서 상세 페이지 */}
         <Route path="/book-detail/:bookId" element={<BookDetail />} />
         {/* 메인 페이지*/}
