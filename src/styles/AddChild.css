@@ -1,9 +1,14 @@
 .home-container {
+    font-family: 'Cafe24 Ssurround';
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-size: cover;
+}
+.home-container h2 {
+    margin-bottom: 70px;
+    font-size: 32px;
 }
 
 .profile-creation-container {
@@ -11,9 +16,6 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     max-width: 800px;
     width: 100%;
     margin: auto;
@@ -25,13 +27,13 @@
 }
 
 .profile-creation-mid-left {
-    flex: 1;
+    flex: 2;
     padding-right: 20px;
     text-align: center;
 }
 
 .profile-creation-mid-right {
-    flex: 1;
+    flex: 3;
     padding-left: 20px;
     display: flex;
     flex-direction: column;
@@ -45,25 +47,70 @@
 }
 
 .input-group label {
-    margin-right: 10px;
-    width: 80px;
+    font-family: 'Cafe24 Ssurround';
+    width: 100px;
+}
+
+/* 입력 칸 스타일 */
+.input-group input[type='text'],
+.input-group input[type='date'] {
+    width: 100%; /* 모든 입력 칸 동일 너비 */
+    max-width: 300px; /* 최대 너비 설정 */
+    padding-inline: 10px;
+    padding-block: 15px;
+    border-radius: 15px;
+    border: 2px solid #ffffff00;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s; /* 부드러운 전환 */
+}
+
+/* 입력 칸에 포커스 시 스타일 */
+.input-group input[type='text']:focus,
+.input-group input[type='date']:focus {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 포커스 시 그림자 효과 */
 }
 
 .gender-options {
+    text-align: center;
+    width: 100%; /* 모든 입력 칸 동일 너비 */
+    max-width: 324px; /* 최대 너비 설정 */
     display: flex;
     align-items: center;
     justify-content: center; /* 가로 중앙 정렬 */
 }
+/* 라디오 버튼 숨기기 */
+.gender-option input[type='radio'] {
+    display: none;
+}
 
-.gender-option {
-    display: flex;
-    align-items: center;
+/* 기본 라벨 스타일 */
+.gender-option label {
+    width: 110px;
+    display: inline-block;
+    margin-inline: 12px;
+    padding: 15px 20px;
+    border-radius: 15px; /* 둥근 모서리 */
+    background-color: #ffffff; /* 기본 하얀 배경 */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* 부드러운 전환 효과 */
+    color: #000000; /* 기본 텍스트 색상 */
+}
+
+/* 선택된 라디오 버튼에 해당하는 라벨 스타일 */
+.gender-option input[type='radio']:checked + label {
+    background-color: #ff9a45; /* 선택 시 배경 색상 */
+    color: #ffffff; /* 선택 시 텍스트 색상 */
+}
+
+/* 호버 시 스타일 */
+.gender-option label:hover {
+    background-color: #ffe6cc; /* 호버 시 밝은 배경 색상 */
 }
 
 .profile-image-display {
     display: flex;
     justify-content: center;
-
 }
 
 .profile-image-display img {
@@ -79,28 +126,97 @@
 }
 
 .profile-image-options {
-    display: flex; /* 가로로 배치 */
-    justify-content: center; /* 중앙 정렬 */
-    margin-top: 10px;
+    display: inline-flex; /* 내부 요소 크기에 맞게 컨테이너가 조정됨 */
+    justify-content: center;
+    align-items: center;
+    background-color: white; /* 배경을 하얀색으로 설정 */
+    padding-inline: 15px;
+    padding-block: 7px;
+    border-radius: 10px; /* 둥근 테두리로 스타일 추가 */
+    margin-top: 20px;
 }
 
 .profile-option {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
+    position: relative;
+    margin-right: 10px;
+    cursor: pointer;
+    display: inline-block;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 약간의 그림자 추가 */
+    transition: box-shadow 0.3s;
 }
 
+.profile-option:last-child {
+    margin-right: 0; /* 마지막 요소는 오른쪽 여백 제거 */
+}
+
+.profile-option label {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+}
+
+.profile-option label img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-option:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 호버 시 그림자 효과 추가 */
+}
+
+/* 생성 버튼 스타일 */
 .create-button {
     margin-top: 20px;
-    padding: 10px 20px;
+    padding: 15px 40px;
     border: none;
-    border-radius: 5px;
-    background-color: #72e5ff;
-    color: black;
+    border-radius: 15px; /* 둥근 모서리 */
+    background-color: #ff9a45; /* 주황색 배경 */
+    color: #ffffff; /* 텍스트 흰색 */
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 16px;
+    transition: background-color 0.3s, box-shadow 0.3s; /* 부드러운 전환 */
 }
 
 .create-button:hover {
-    background-color: #C2EAF3;
+    background-color: #e58a35; /* 호버 시 약간 더 진한 주황색 */
+}
+::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: #fff;
+}
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 모질라 파이어폭스 4 ~ 18 */
+    color: #fff;
+    opacity: 1;
+}
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ 모질라 파이어폭스 19 이상 */
+    color: #fff;
+    opacity: 1;
+}
+:-ms-input-placeholder {
+    /* Internet Explorer 10+ 인터넷 익스플로러 10 이상 */
+    color: #fff;
+}
+input[type='date']::-webkit-datetime-edit-text {
+    -webkit-appearance: none;
+    display: none;
+}
+input[type='date']::-webkit-datetime-edit-month-field {
+    -webkit-appearance: none;
+    display: none;
+}
+input[type='date']::-webkit-datetime-edit-day-field {
+    -webkit-appearance: none;
+    display: none;
+}
+input[type='date']::-webkit-datetime-edit-year-field {
+    -webkit-appearance: none;
+    display: none;
 }
