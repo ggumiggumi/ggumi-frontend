@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import backgroundImage from '../../assets/new-background.png';
-import { API_DOMAIN } from '../../apis/api.js';
+import { API_DOMAIN, LOCAL_DOMAIN } from '../../apis/api.js';
 import './styles/AdminPage.css';
 
 const AdminPage = () => {
@@ -61,10 +61,10 @@ const AdminPage = () => {
                         author: formData.author,
                         publisher: formData.publisher,
                         recommend_age: formData.recommend_age,
-                        ei: formData.ei,
-                        sn: formData.sn,
-                        ft: formData.ft,
-                        pj: formData.pj,
+                        EI: formData.ei,
+                        SN: formData.sn,
+                        FT: formData.ft,
+                        PJ: formData.pj,
                         content: formData.content,
                     }),
                 ],
@@ -73,12 +73,8 @@ const AdminPage = () => {
         );
 
         data.append('imageFile', formData.bookCover);
-
         try {
-            const response = await axios.post(
-                `${API_DOMAIN}/books`,
-                data
-            );
+            const response = await axios.post(`${API_DOMAIN}/books`, data);
             console.log('Book added successfully:', response.data);
         } catch (error) {
             console.error('Error adding book:', error);
