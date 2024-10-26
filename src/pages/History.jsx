@@ -15,9 +15,14 @@ const History = () => {
     // GET  /api/histories
     useEffect(() => {
         const fetchHistoryData = async () => {
+            const childId = sessionStorage.getItem('childId');
+            if (!childId) {
+                console.error('ChildId가 존재하지 않습니다.');
+                return;
+            }
             try {
                 const response = await axios.get(`${API_DOMAIN}/histories`, {
-                    withCredentials: true,
+                    params: { childId },
                 });
                 const data = response.data;
                 setHistoryData(data);
