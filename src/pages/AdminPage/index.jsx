@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import backgroundImage from '../../assets/new-background.png';
-import { API_DOMAIN, LOCAL_DOMAIN } from '../../apis/api.js';
+import { API_DOMAIN } from '../../apis/api.js';
 import './styles/AdminPage.css';
 
 const AdminPage = () => {
@@ -76,8 +76,7 @@ const AdminPage = () => {
 
         try {
             const response = await axios.post(
-                // `${API_DOMAIN}/books`,
-                `${LOCAL_DOMAIN}/api/books`,
+                `${API_DOMAIN}/books`,
                 data
             );
             console.log('Book added successfully:', response.data);
