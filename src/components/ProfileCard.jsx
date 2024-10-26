@@ -4,11 +4,11 @@ import '../styles/ProfileCard.css';
 const ProfileCard = ({ profileImageCode, name, onSelect }) => {
     return (
         <div className='profile-card' onClick={onSelect}>
-            <button className='profile-button'>
+            <button className='profile-card-button'>
                 <img
                     src={`/profile-code${profileImageCode}.png`}
                     alt={name}
-                    className='profile-image'
+                    className='profile-card-image'
                 />
             </button>
             <p>{name}</p>
