@@ -3,7 +3,7 @@
     margin: 10px;
 }
 
-.profile-button {
+.profile-card-button {
     width: 120px; /* 버튼의 너비 설정 */
     height: 120px; /* 버튼의 높이 설정 */
     padding: 0; /* 패딩을 없애서 이미지만 표시 */
@@ -14,7 +14,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
 }
 
-.profile-image {
+.profile-card-image {
     width: 100%; /* 이미지가 버튼 크기에 맞춰지도록 설정 */
     height: 100%; /* 이미지가 버튼 크기에 맞춰지도록 설정 */
     object-fit: cover; /* 이미지가 버튼에 맞춰 꽉 차도록 설정 */
