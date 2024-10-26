@@ -2,7 +2,7 @@ import '../styles/MbtiResultPage.css';
 
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { LOCAL_DOMAIN } from "../apis/api.js";
+import { API_DOMAIN } from "../apis/api.js";
 
 import profileIcon from "../assets/profile-code1.png";
 import deleteBtn from '../assets/delete_btn.png';
@@ -27,12 +27,18 @@ function MbtiResultPage() {
     useEffect(() => {
         const fetchChildMbti = async () => {
             try {
-                const response = await fetch(`${LOCAL_DOMAIN}/api/histories/my-child-mbti`, {
-                    method: "GET",
+                const childId = sessionStorage.getItem('childId');
+
+                if (!childId) {
+                    console.error('childId가 존재하지 않습니다.');
+                    return;
+                }
+
+                const response = await fetch(`${API_DOMAIN}/histories/my-child-mbti?childId=${childId}`, {
+                    method: 'GET',
                     headers: {
-                        "Content-Type": "application/json",
-                    },
-                    credentials: 'include', // 쿠키를 포함하여 요청
+                                'Content-Type': 'application/json',
+                            },
                 });
     
                 const result = await response.json(); // JSON 데이터로 변환
