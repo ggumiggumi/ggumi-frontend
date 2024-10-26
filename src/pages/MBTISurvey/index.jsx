@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
+
 import axios from "axios";
 import backgroundImage from "../../assets/background-yellow.png"; // 배경 이미지 경로
 import heartSticker from "../../assets/ggumi-heart.png"; // 로고 이미지 경로
@@ -6,6 +8,9 @@ import "./styles/MbtiSurvey.css";
 import QuestionCard from "../../components/QuestionCard";
 
 const MbtiSurvey = () => {
+
+  const navigate = useNavigate();
+  
   const questions = [
     {
       id: 1,
@@ -180,6 +185,9 @@ const MbtiSurvey = () => {
 
     console.log(averages);
     setMbtiDataToServer(averages);
+
+    // 모든 질문이 체크되었을 때만 navigate 실행
+    navigate(`/mbti/result`);
   };
 
   const setMbtiDataToServer = async (averages) => {

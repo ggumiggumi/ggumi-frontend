@@ -1,44 +1,91 @@
 import '../styles/MbtiResultPage.css';
 
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import { LOCAL_DOMAIN } from "../apis/api.js";
 
 import profileIcon from "../assets/profile-code1.png";
 import deleteBtn from '../assets/delete_btn.png';
 import homeBtn from '../assets/home_btn.png';
 
-
 function MbtiResultPage() {
+    
+    const navigate = useNavigate();
 
-    // mbti 점수 데이터
-    const mbti_data = [
-        { E: 12, I: 88 },
-        { S: 73, N: 27 },
-        { F: 53, T: 47 },
-        { P: 50, J: 50 },
-    ];
+    const [childName, setChildName] = useState(''); // 아이 이름
+    const [mbtiType, setMbtiType] = useState(''); // 자녀 mbti 유형
+    const [mbtiDesc, setMbtiDesc] = useState(''); // 자녀 mbti 유형 설명
+    const [mbtiTags, setMbtiTags] = useState([]); // 자녀 mbti 유형 태그 목록
 
-    const name = '홍길동';
-    const mbtiType = 'INTJ';
-    const mbtiDesc = '전략가';
+    const [mbtiValues, setMbtiValues] = useState([
+        { E: 0, I: 0 },
+        { N: 0, S: 0 },
+        { T: 0, F: 0 },
+        { J: 0, P: 0 },
+    ]); 
+    
+    useEffect(() => {
+        const fetchChildMbti = async () => {
+            try {
+                const response = await fetch(`${LOCAL_DOMAIN}/api/histories/my-child-mbti`, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    credentials: 'include', // 쿠키를 포함하여 요청
+                });
+    
+                const result = await response.json(); // JSON 데이터로 변환
+    
+                setChildName(result.data.name || '이름 없음');
+                setMbtiType(result.data.mbtiType || '유형 없음');
+                setMbtiDesc(result.data.mbtiDesc || '설명 없음');
+                setMbtiTags(result.data.mbtiTags || ['태그1', '태그2', '태그3']);
+    
+                const updatedMbtiData = [
+                    { E: result.data.e, I: result.data.i },
+                    { N: result.data.n, S: result.data.s },
+                    { T: result.data.t, F: result.data.f },
+                    { J: result.data.j, P: result.data.p },
+                ];
+                setMbtiValues(updatedMbtiData); 
+    
+            } catch (error) {
+                console.error("자녀 MBTI 검사 결과 가져오는 중 에러 발생:", error);
+            } 
+        };
+    
+        fetchChildMbti(); // 페이지 로드 시 함수 호출
 
-    // 라벨 정보
+    }, []); 
+    
     const mbti_labels = [
-        { label: '마음', leftLabel: '외향형', rightLabel: '내향형' },
-        { label: '에너지', leftLabel: '직관형', rightLabel: '현실주의형' },
-        { label: '분석', leftLabel: '사고형', rightLabel: '감각형' },
-        { label: '전술', leftLabel: '판단형', rightLabel: '인식형' },
+        { label: '마음', leftLabel: '외향형(E)', rightLabel: '내향형(I)' },
+        { label: '에너지', leftLabel: '직관형(N)', rightLabel: '현실주의형(S)' },
+        { label: '분석', leftLabel: '사고형(T)', rightLabel: '감각형(F)' },
+        { label: '전술', leftLabel: '판단형(J)', rightLabel: '인식형(P)' },
     ];
 
-    // MBTI 태그 정보
-    const mbtiTags = ['#목표 지향적', '#논리적 사고', '#조용한 관찰자'];
+    const handleToMainPage = () => {
+        navigate("/main");
+    };
+
+    const deleteRequest = () => {
+        const isConfirmed = window.confirm('진단 데이터를 삭제하시겠습니까?');
+        if (isConfirmed) {
+            // 삭제 요청을 보내는 로직을 여기에 추가
+            // 예시: await axios.delete('/api/delete-url');
+            navigate("/main"); // 삭제 후 메인 페이지로 이동
+        }
+    };
 
     return (
         <div className="mbti-result-page">
 
-            <div className="logo-section">꾸미</div>
+            <div className="logo-section" onClick={handleToMainPage} style={{ cursor: "pointer" }}>꾸미</div>
 
             <div className="info-section">
-                <div className="info-title">{name}의 성향 정보</div>
+                <div className="info-title">{childName}의 성향 정보</div>
 
                 <div className="child-info-section">
 
@@ -68,18 +115,20 @@ function MbtiResultPage() {
                                     <div
                                         className="bar-left"
                                         style={{
-                                            width: `${mbti_data[index][Object.keys(mbti_data[index])[0]]}%`
+                                            width: `${mbtiValues[index][Object.keys(mbtiValues[index])[0]]}%`,
+                                            backgroundColor: mbtiValues[index][Object.keys(mbtiValues[index])[0]] < mbtiValues[index][Object.keys(mbtiValues[index])[1]] ? 'gray' : '#34d399' // 작은 값은 회색, 큰 값은 #34d399
                                         }}
                                     >
-                                        <span className="percentage">{mbti_data[index][Object.keys(mbti_data[index])[0]]}%</span>
+                                        <span className="percentage">{mbtiValues[index][Object.keys(mbtiValues[index])[0]]}%</span>
                                     </div>
                                     <div
                                         className="bar-right"
                                         style={{
-                                            width: `${mbti_data[index][Object.keys(mbti_data[index])[1]]}%`
+                                            width: `${mbtiValues[index][Object.keys(mbtiValues[index])[1]]}%`,
+                                            backgroundColor: mbtiValues[index][Object.keys(mbtiValues[index])[1]] < mbtiValues[index][Object.keys(mbtiValues[index])[0]] ? 'gray' : '#34d399' // 작은 값은 회색, 큰 값은 #34d399  
                                         }}
                                     >
-                                        <span className="percentage">{mbti_data[index][Object.keys(mbti_data[index])[1]]}%</span>
+                                        <span className="percentage">{mbtiValues[index][Object.keys(mbtiValues[index])[1]]}%</span>
                                     </div>
                                 </div>
                             </div>
@@ -92,14 +141,12 @@ function MbtiResultPage() {
         
             {/* 버튼 섹션 */}
             <div className="button-section">
-                <img className="delete-button" src={deleteBtn} alt="삭제 버튼" />
-                <img className="home-button" src={homeBtn} alt="홈 버튼" />
+                <img className="delete-button" onClick={deleteRequest} src={deleteBtn} alt="삭제 버튼" />
+                <img className="home-button" onClick={handleToMainPage} src={homeBtn} alt="홈 버튼" />
             </div>
            
         </div>
     );
 }
-
-
 
 export default MbtiResultPage;

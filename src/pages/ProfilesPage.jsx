@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Cookies from 'js-cookie';
 import ProfileCard from '../components/ProfileCard';
 import '../styles/ProfileSelection.css';
 import backgroundImage from '../assets/new-background.png';
@@ -33,7 +32,7 @@ const ProfilesPage = () => {
     }, []);
 
     const handleSelectProfile = (id) => {
-        Cookies.set('ChildId', id, { expires: 1 });
+        sessionStorage.setItem('childId', id);
         navigate('/main');
     };
 

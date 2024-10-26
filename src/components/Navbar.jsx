@@ -22,7 +22,7 @@ const Navbar = ({ onSearch }) => {
     navigate(`/mbti/main`);
   };
   const handleToReadMBTIClick = () => {
-    navigate(`/`);
+    navigate(`/mbti/result`);
   };
   const handleToHistoryClick = () => {
     navigate(`/history`);
