@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { API_DOMAIN } from "../apis/api.js";
 
-import profileIcon from "../assets/profile-code1.png";
 import deleteBtn from '../assets/delete_btn.png';
 import homeBtn from '../assets/home_btn.png';
 
@@ -16,6 +15,7 @@ function MbtiResultPage() {
     const [mbtiType, setMbtiType] = useState(''); // 자녀 mbti 유형
     const [mbtiDesc, setMbtiDesc] = useState(''); // 자녀 mbti 유형 설명
     const [mbtiTags, setMbtiTags] = useState([]); // 자녀 mbti 유형 태그 목록
+    const [profileCode, setProfileCode] = useState('');
 
     const [mbtiValues, setMbtiValues] = useState([
         { E: 0, I: 0 },
@@ -47,6 +47,7 @@ function MbtiResultPage() {
                 setMbtiType(result.data.mbtiType || '유형 없음');
                 setMbtiDesc(result.data.mbtiDesc || '설명 없음');
                 setMbtiTags(result.data.mbtiTags || ['태그1', '태그2', '태그3']);
+                setProfileCode(result.data.profileCode || 1);
     
                 const updatedMbtiData = [
                     { E: result.data.e, I: result.data.i },
@@ -96,7 +97,13 @@ function MbtiResultPage() {
                 <div className="child-info-section">
 
                     <div className="profile-section">
-                        <img className="profile-image" src={profileIcon} />
+                        
+                        <img className="profile-image"
+                            src={`/profile-code${profileCode}.png`}
+                            alt='Profile'
+                        />
+
+
                         <div className="mbti-info">
                             <div className="mbti-type">{mbtiType} ({mbtiDesc})</div>
                             <div>
