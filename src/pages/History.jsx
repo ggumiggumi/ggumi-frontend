@@ -126,10 +126,10 @@ const History = () => {
 
 // MBTI 타입을 결정하는 함수 (예시)
 const getMBTIType = (ei, sn, ft, pj) => {
-    const EorI = ei > 0.5 ? 'E' : 'I';
-    const SorN = sn > 0.5 ? 'N' : 'S';
-    const ForT = ft > 0.5 ? 'F' : 'T';
-    const PorJ = pj > 0.5 ? 'J' : 'P';
+    const EorI = ei >= 0.5 ? 'E' : 'I';
+    const SorN = sn >= 0.5 ? 'S' : 'N';
+    const ForT = ft >= 0.5 ? 'F' : 'T';
+    const PorJ = pj >= 0.5 ? 'P' : 'J';
 
     return `${EorI}${SorN}${ForT}${PorJ}`;
 };
