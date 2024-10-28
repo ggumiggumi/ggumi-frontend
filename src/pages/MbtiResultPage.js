@@ -23,6 +23,13 @@ function MbtiResultPage() {
         { T: 0, F: 0 },
         { J: 0, P: 0 },
     ]); 
+
+    const [mbtiColors, setMbtiColors] = useState([
+        { E: 'gray', I: 'gray' },
+        { N: 'gray', S: 'gray' },
+        { T: 'gray', F: 'gray' },
+        { J: 'gray', P: 'gray' },
+    ]);
     
     useEffect(() => {
         const fetchChildMbti = async () => {
@@ -55,7 +62,11 @@ function MbtiResultPage() {
                     { T: result.data.t, F: result.data.f },
                     { J: result.data.j, P: result.data.p },
                 ];
+
                 setMbtiValues(updatedMbtiData); 
+
+                // MBTI 색상 설정
+                setMbtiColors(getMbtiColors(result.data.mbtiType));
     
             } catch (error) {
                 console.error("자녀 MBTI 검사 결과 가져오는 중 에러 발생:", error);
@@ -65,6 +76,31 @@ function MbtiResultPage() {
         fetchChildMbti(); // 페이지 로드 시 함수 호출
 
     }, []); 
+
+
+    const getMbtiColors = (type) => {
+        const colors = [
+            { E: 'gray', I: 'gray' },
+            { N: 'gray', S: 'gray' },
+            { T: 'gray', F: 'gray' },
+            { J: 'gray', P: 'gray' },
+        ];
+
+        if (type) {
+            for (let i = 0; i < type.length; i++) {
+                if (type[i] === 'I') colors[0].I = '#34d399'; // 초록색
+                if (type[i] === 'E') colors[0].E = '#34d399'; // 초록색
+                if (type[i] === 'N') colors[1].N = '#34d399'; // 초록색
+                if (type[i] === 'S') colors[1].S = '#34d399'; // 초록색
+                if (type[i] === 'T') colors[2].T = '#34d399'; // 초록색
+                if (type[i] === 'F') colors[2].F = '#34d399'; // 초록색
+                if (type[i] === 'J') colors[3].J = '#34d399'; // 초록색
+                if (type[i] === 'P') colors[3].P = '#34d399'; // 초록색
+            }
+        }
+
+        return colors;
+    };
     
     const mbti_labels = [
         { label: '마음', leftLabel: '외향형(E)', rightLabel: '내향형(I)' },
@@ -126,20 +162,20 @@ function MbtiResultPage() {
                                 </div>
                                 <div className="bar-container">
                                     <div
-                                        className="bar-left"
-                                        style={{
-                                            width: `${mbtiValues[index][Object.keys(mbtiValues[index])[0]]}%`,
-                                            backgroundColor: mbtiValues[index][Object.keys(mbtiValues[index])[0]] < mbtiValues[index][Object.keys(mbtiValues[index])[1]] ? 'gray' : '#34d399' // 작은 값은 회색, 큰 값은 #34d399
-                                        }}
+                                    className="bar-left"
+                                    style={{
+                                        width: `${mbtiValues[index][Object.keys(mbtiValues[index])[0]]}%`,
+                                        backgroundColor: mbtiColors[index][Object.keys(mbtiValues[index])[0]], // 해당 색상 적용
+                                    }}
                                     >
                                         <span className="percentage">{mbtiValues[index][Object.keys(mbtiValues[index])[0]]}%</span>
                                     </div>
                                     <div
-                                        className="bar-right"
-                                        style={{
-                                            width: `${mbtiValues[index][Object.keys(mbtiValues[index])[1]]}%`,
-                                            backgroundColor: mbtiValues[index][Object.keys(mbtiValues[index])[1]] < mbtiValues[index][Object.keys(mbtiValues[index])[0]] ? 'gray' : '#34d399' // 작은 값은 회색, 큰 값은 #34d399  
-                                        }}
+                                    className="bar-right"
+                                    style={{
+                                        width: `${mbtiValues[index][Object.keys(mbtiValues[index])[1]]}%`,
+                                        backgroundColor: mbtiColors[index][Object.keys(mbtiValues[index])[1]], // 해당 색상 적용
+                                    }}
                                     >
                                         <span className="percentage">{mbtiValues[index][Object.keys(mbtiValues[index])[1]]}%</span>
                                     </div>
