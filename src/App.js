@@ -12,7 +12,6 @@ import History from "./pages/History";
 import Search from "./pages/search/index";
 import Callback from "./pages/AuthCallback";
 import AdminPage from "./pages/AdminPage";
-import EventApply from "./pages/eventapply/EventApply";
 
 function App() {
   return (
@@ -42,8 +41,6 @@ function App() {
         <Route path="/auth/callback" element={<Callback />} />
         {/* 관리자 페이지 */}
         <Route path="/admin/add-book" element={<AdminPage />} />
-        {/* 이벤트 응모 페이지 */}
-        <Route path="/event/apply" element={<EventApply />} />
       </Routes>
     </Router>
   );
