@@ -8,6 +8,8 @@ import prevPageIcon from "../assets/prev_btn.png";
 import nextPageIcon from "../assets/next_btn.png";
 import { API_DOMAIN } from "../apis/api.js";
 
+import backgroundImage from "../assets/background_long.png"; // 배경 이미지 경로
+
 function MainPage() {
   const navigate = useNavigate();
 
@@ -91,25 +93,34 @@ function MainPage() {
 
   return (
     <>
-      <Navbar onSearch={handleSearch} />
-      <div className="content-container">
-        {/* 추천 도서 Section */}
-        <Section
-          title="이런 책은 어때요?"
-          books={TopBooks}
-          changePage={changePage} // 추천 도서의 페이지 변경 로직
-        />
+    
+    <div className="main-page-container" style={{ backgroundImage: `url(${backgroundImage})` }}>
 
-        {/* 좋아요 순 도서 Section */}
-        <Section
-          title="친구들에게 인기있는 책 !"
-          books={PopularBooks}
-          changePage={changePopularityPage} // 좋아요 순 페이지 변경 함수 연결
-          popularityPage={popularityPage} // 좋아요 페이지 정보 전달
-          totalPages={totalPages} // 총 페이지 정보 전달
-        />
-      </div>
+      <Navbar onSearch={handleSearch} />
+
+      
+        <div className="content-container">
+          {/* 추천 도서 Section */}
+          <Section
+            title="이런 책은 어때요?"
+            books={TopBooks}
+            changePage={changePage} // 추천 도서의 페이지 변경 로직
+          />
+
+          {/* 좋아요 순 도서 Section */}
+          <Section
+            title="친구들에게 인기있는 책 !"
+            books={PopularBooks}
+            changePage={changePopularityPage} // 좋아요 순 페이지 변경 함수 연결
+            popularityPage={popularityPage} // 좋아요 페이지 정보 전달
+            totalPages={totalPages} // 총 페이지 정보 전달
+          />
+        </div>
+      
+
       <Footer />
+
+    </div>  
     </>
   );
 }
@@ -183,6 +194,7 @@ const Section = ({
           alt="다음"
         />
       </div>
+    
     </>
   );
 };

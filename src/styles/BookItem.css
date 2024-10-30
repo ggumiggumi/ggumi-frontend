@@ -1,21 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
-
 .searched-book-item {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  padding: 20px;
-  min-width: 900px;
-  width: auto;
+  margin: 20px 0 20px 40px; /* 위 20px, 오른쪽 0px, 아래 20px, 왼쪽 40px */
+  width: 80%;
   height: auto;
   background-color: #ffffff; /* 배경색 */
 }
 
 .searched-book-image {
-  width: 30%;
-  height: 25vh;
-  flex-shrink: 0;
+  border-radius: 10px; /* 모서리 둥글게 */
+  overflow: hidden; /* 내용이 넘치면 숨김 */
+  width: 200px; /* 카드 너비 */
+  height: 280px; /* 카드 높이 고정 */
 }
 
 .searched-book-details {
@@ -27,18 +23,14 @@
 
 .searched-book-title {
   color: #003fbc;
-  font-family: Inter;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  font-family: 'NanumSquareRound';
+  font-size: 20px; /* 폰트 크기 조정 */
+  font-weight: 900;
 }
 
 .searched-book-author {
   color: #000;
-  font-family: Inter;
-  font-size: 25px;
-  font-style: normal;
+  font-family: 'NanumSquareRound';
+  font-size: 15px; /* 폰트 크기 조정 */
   font-weight: 500;
-  line-height: normal;
 }

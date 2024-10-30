@@ -4,8 +4,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { API_DOMAIN } from "../apis/api.js";
 
-import deleteBtn from '../assets/delete_btn.png';
-import homeBtn from '../assets/home_btn.png';
+import backgroundImage from "../assets/new-background.png"; // 배경 이미지 경로 
+
 
 function MbtiResultPage() {
     
@@ -123,76 +123,87 @@ function MbtiResultPage() {
     };
 
     return (
-        <div className="mbti-result-page">
-
-            <div className="logo-section" onClick={handleToMainPage} style={{ cursor: "pointer" }}>꾸미</div>
-
-            <div className="info-section">
-                <div className="info-title">{childName}의 성향 정보</div>
-
-                <div className="child-info-section">
-
-                    <div className="profile-section">
-                        
-                        <img className="profile-image"
-                            src={`/profile-code${profileCode}.png`}
-                            alt='Profile'
-                        />
+        <div className="mbti-result-page" style={{ backgroundImage: `url(${backgroundImage})` }}>
 
 
-                        <div className="mbti-info">
-                            <div className="mbti-type">{mbtiType} ({mbtiDesc})</div>
-                            <div>
-                                {mbtiTags.map((tag, index) => (
-                                    <div className="mbti-tag" key={index}>{tag}</div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
+            <div className="logo-container">
+                {/**<img src={heartSticker} alt="꾸미 로고" className="heart-logo" />**/}
+                <div className="logo-title" onClick={handleToMainPage} style={{ cursor: "pointer" }} >꾸미</div>
+            </div>
+            
+            <div className="info-container">
 
+                <div className="info-section">
                     
-                    {/* MBTI 상세 정보 섹션 */}
-                    <div className="mbti-detail-section">
-                        {mbti_labels.map((item, index) => (
-                            <div key={index}>
-                                <div className="mbti-bar-label">
-                                    <span className="left-label">{item.leftLabel}</span>
-                                    <span className="center-label">{item.label}</span>
-                                    <span className="right-label">{item.rightLabel}</span>
-                                </div>
-                                <div className="bar-container">
-                                    <div
-                                    className="bar-left"
-                                    style={{
-                                        width: `${mbtiValues[index][Object.keys(mbtiValues[index])[0]]}%`,
-                                        backgroundColor: mbtiColors[index][Object.keys(mbtiValues[index])[0]], // 해당 색상 적용
-                                    }}
-                                    >
-                                        <span className="percentage">{mbtiValues[index][Object.keys(mbtiValues[index])[0]]}%</span>
-                                    </div>
-                                    <div
-                                    className="bar-right"
-                                    style={{
-                                        width: `${mbtiValues[index][Object.keys(mbtiValues[index])[1]]}%`,
-                                        backgroundColor: mbtiColors[index][Object.keys(mbtiValues[index])[1]], // 해당 색상 적용
-                                    }}
-                                    >
-                                        <span className="percentage">{mbtiValues[index][Object.keys(mbtiValues[index])[1]]}%</span>
-                                    </div>
+                    <div className="info-title">{childName}의 성향 정보</div>
+
+                    <div className="child-info-section">
+
+                        <div className="profile-section">
+                            <img className="profile-image" src={`/profile-code${profileCode}.png`} alt='Profile'/>
+
+                            <div className="mbti-info">
+                                <div className="mbti-type">{mbtiType} ({mbtiDesc})</div>
+                                <div>
+                                    {mbtiTags.map((tag, index) => (
+                                        <div className="mbti-tag" key={index}>{tag}</div>
+                                    ))}
                                 </div>
                             </div>
-                        ))}
+                         </div>
+
+                        <div className="mbti-detail-section">
+                            {mbti_labels.map((item, index) => (
+                                <div key={index}>
+                                    <div className="mbti-bar-label">
+                                        <span className="left-label">{item.leftLabel}</span>
+                                        <span className="center-label">{item.label}</span>
+                                        <span className="right-label">{item.rightLabel}</span>
+                                    </div>
+                                    <div className="bar-container">
+                                        <div
+                                        className="bar-left"
+                                        style={{
+                                            width: `${mbtiValues[index][Object.keys(mbtiValues[index])[0]]}%`,
+                                            backgroundColor: mbtiColors[index][Object.keys(mbtiValues[index])[0]], // 해당 색상 적용
+                                        }}
+                                        >
+                                            <span className="percentage">{mbtiValues[index][Object.keys(mbtiValues[index])[0]]}%</span>
+                                        </div>
+                                        <div
+                                        className="bar-right"
+                                        style={{
+                                            width: `${mbtiValues[index][Object.keys(mbtiValues[index])[1]]}%`,
+                                            backgroundColor: mbtiColors[index][Object.keys(mbtiValues[index])[1]], // 해당 색상 적용
+                                        }}
+                                        >
+                                            <span className="percentage">{mbtiValues[index][Object.keys(mbtiValues[index])[1]]}%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
                     </div>
 
                 </div>
+
+            </div>
+            
+
+            {/* 버튼 섹션 */}
+            <div className="button-container">
+                
+                <div className="delete-button" onClick={deleteRequest}>
+                    진단 정보 삭제
+                </div>
+
+                <div className="home-button" onClick={handleToMainPage}>
+                    홈으로 이동
+                </div>
+
             </div>
 
-        
-            {/* 버튼 섹션 */}
-            <div className="button-section">
-                <img className="delete-button" onClick={deleteRequest} src={deleteBtn} alt="삭제 버튼" />
-                <img className="home-button" onClick={handleToMainPage} src={homeBtn} alt="홈 버튼" />
-            </div>
            
         </div>
     );
