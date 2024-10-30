@@ -1,5 +1,6 @@
 .home-container {
-    font-family: 'Cafe24 Ssurround';
+    font-family: 'Cafe24Ssurround';
+    letter-spacing: -1.5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,7 +48,8 @@
 }
 
 .input-group label {
-    font-family: 'Cafe24 Ssurround';
+    font-family: 'Cafe24Ssurround';
+    letter-spacing: -1.5px;
     width: 100px;
 }
 
@@ -181,6 +183,7 @@
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s, box-shadow 0.3s; /* 부드러운 전환 */
+    font-family: 'NanumSquareRound';
 }
 
 .create-button:hover {

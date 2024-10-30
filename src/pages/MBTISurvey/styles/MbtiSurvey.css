@@ -1,20 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
-
-.background-container {
+.mbti-survey-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
   min-width: 800px;
   height: auto;
-  background-color: #f9e67e; /* 배경색 */
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
 }
 
 .heart-logo {
@@ -24,21 +13,21 @@
 }
 
 .logo-title {
-  color: #e54851;
-  font-family: "Bagel Fat One", sans-serif;
-  font-size: 100px;
-  margin: 0;
+  font-family: 'RixInooAriDuriR';
+  font-size: 80px;
+  font-style: normal;
+  color: #FF4A4A;
 }
 
 .survey-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 1081px;
+  width: 1080px;
   height: auto;
-  flex-shrink: 0;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 20px;
+  border-radius: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+  background-color: #FFFEE4;
 }
 
 .survey-title-container {
@@ -54,8 +43,8 @@
 .survey-title {
   color: #31241c;
   text-align: center;
-  font-family: Stylish;
-  font-size: 48px;
+  font-family: 'Cafe24Ssurround';
+  font-size: 38px;
   font-style: normal;
   font-weight: 400;
   letter-spacing: -1.056px;
@@ -64,8 +53,8 @@
 
 .survey-title2 {
   color: #fd7724;
-  font-family: Stylish;
-  font-size: 48px;
+  font-family: 'Cafe24Ssurround';
+  font-size: 38px;
   font-style: normal;
   font-weight: 400;
   letter-spacing: -1.056px;
@@ -93,10 +82,10 @@
 
 .question {
   color: #000;
-  font-family: Stylish;
-  font-size: 32px;
+  font-family: 'NanumSquareRound';
+  font-size: 28px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 900;
   line-height: 48px; /* 150% */
   letter-spacing: -0.704px;
   margin: 0;
@@ -199,31 +188,42 @@ input[type="radio"]:checked + .fifth-circle {
 .reaction-button {
   color: #31241c;
   text-align: center;
-  font-family: Stylish;
-  font-size: 30px;
+  font-family: 'NanumSquareRound';
+  font-size: 24px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 900;
   line-height: 48px; /* 160% */
   letter-spacing: -0.66px;
 }
 
-.button-container {
-}
+ 
 
 .start-button {
   background-color: #e54851;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   color: white;
   border: none;
-  border-radius: 20px;
-  padding: 15px 30px;
-  font-family: "Roboto", sans-serif;
-  font-size: 32px;
-  font-weight: 700;
+  border-radius: 10px;
   cursor: pointer;
+  
+  font-family: 'NanumSquareRound';
+  font-size: 28px;
+  font-weight: 900;
+  text-align: center;
+
+  display: flex; /* flexbox를 사용 */
+  align-items: center; /* 수직 정렬 */
+  justify-content: center; /* 수평 정렬 */
+
   transition: background-color 0.3s;
-  margin-bottom: 20px;
+  
+  width: 265px;
+  height: 60px;
 }
 
 .start-button:hover {
-  background-color: #d43b4a; /* 호버 시 색 변화 */
+  background-color: #d43b4a;
 }
+
+
+

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
 import axios from "axios";
-import backgroundImage from "../../assets/background-yellow.png"; // 배경 이미지 경로
+import backgroundImage from "../../assets/background_long.png"; // 배경 이미지 경로
 import heartSticker from "../../assets/ggumi-heart.png"; // 로고 이미지 경로
 import "./styles/MbtiSurvey.css";
 import QuestionCard from "../../components/QuestionCard";
@@ -215,13 +215,14 @@ const MbtiSurvey = () => {
   }, [responses]);
 
   return (
-    <div
-      className="background-container"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
-    >
+    <div className="mbti-survey-container" 
+    style={{ backgroundImage: `url(${backgroundImage})` }}>
+
+      
       <div className="logo-container">
-        <img src={heartSticker} alt="꾸미 로고" className="heart-logo" />
-        <h1 className="logo-title">꾸미</h1>
+        {/**<img src={heartSticker} alt="꾸미 로고" className="heart-logo" />**/
+        }
+        <div className="logo-title">꾸미</div>
       </div>
       <div className="survey-container">
         <div className="survey-title-container">
@@ -238,12 +239,15 @@ const MbtiSurvey = () => {
             weights={q.weights}
           />
         ))}
-        <div className="button-container">
-          <div className="start-button" onClick={calculateAverages}>
+        
+      </div>
+
+      <div className="button-container">
+        <div className="start-button" onClick={calculateAverages}>
             검사 결과로 고고씽!
-          </div>
         </div>
       </div>
+      
     </div>
   );
 };

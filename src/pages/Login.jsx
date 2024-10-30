@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import backgroundImage from "../assets/background-yellow.png"; // 배경 이미지 경로
+import backgroundImage from "../assets/new-background.png"; // 배경 이미지 경로
 import "../styles/Login.css";
-import kakaoLogin from "../assets/kakao_login_large_wide.png";
-import welcomeSticker from "../assets/ggumi-welcome.png";
+import welcomeSticker from "../assets/ggumi-welcome1.png";
+import kakaoIcon from "../assets/kakao_icon.png";
 
 const CLIENT_ID = "49ca0576cd2ac11f1b1e5b04b39741b5";
 const REDIRECT_URI = "http://localhost:3000/auth/callback";
@@ -37,14 +37,20 @@ const Login = () => {
         <div className="ggumi-main-title">꾸미</div>
         <div className="ggumi-semi-title">꾸미와 함께 꿈을 이뤄봐요</div>
       </div>
+      
       <img
         src={welcomeSticker}
         className="welcome-sticker"
         alt="welcome sticker"
       ></img>
-      <button className="login" onClick={handleLogin}>
-        <img src={kakaoLogin} alt="kakao login" className="kakao-login"></img>
+      
+      <button className="login-button" onClick={handleLogin}>
+          <img src={kakaoIcon} alt="Icon" className="login-button-icon" />
+          <span className="login-button-text">카카오 로그인</span>
       </button>
+
+      
+
     </div>
   );
 };
