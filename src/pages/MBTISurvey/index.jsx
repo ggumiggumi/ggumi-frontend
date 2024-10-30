@@ -6,6 +6,7 @@ import backgroundImage from "../../assets/background-yellow.png"; // 배경 이�
 import heartSticker from "../../assets/ggumi-heart.png"; // 로고 이미지 경로
 import "./styles/MbtiSurvey.css";
 import QuestionCard from "../../components/QuestionCard";
+import { API_DOMAIN } from "../../apis/api.js";
 
 const MbtiSurvey = () => {
 
@@ -151,6 +152,11 @@ const MbtiSurvey = () => {
     }));
   };
 
+  function sleep(ms) {
+    const wakeUpTime = Date.now() + ms;
+    while (Date.now() < wakeUpTime) {}
+  }
+
   const calculateAverages = () => {
     for (const q of questions) {
       if (responses[`question${q.id}`] === undefined) {
@@ -187,6 +193,7 @@ const MbtiSurvey = () => {
     setMbtiDataToServer(averages);
 
     // 모든 질문이 체크되었을 때만 navigate 실행
+    sleep(1000);
     navigate(`/mbti/result`);
   };
 
