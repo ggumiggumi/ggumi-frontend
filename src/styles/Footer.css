@@ -1,28 +1,26 @@
 /* Footer.css */
 .footer {
-    background-color: #FFF48C;
-    color: black;
-    padding: 20px;
-    text-align: center;
-    margin-top: 40px;
-  }
-  
-  .footer-links {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .footer-links li {
-    display: inline;
-    margin: 0 10px;
-  }
-  
-  .footer-links a {
-    color: black;
-    text-decoration: none;
-  }
-  
-  .footer-links a:hover {
-    text-decoration: underline;
-  }
-  
+  width: 100%;
+	height: 110px; /* 내용물에 따라 알맞는 값 설정 */
+	bottom: 0px;
+	position: absolute;
+}
+
+.footer-links {
+  list-style-type: none; /* 기본 리스트 스타일 제거 */
+  padding: 0; /* 패딩 제거 */
+}
+
+.footer-links li {
+  display: inline; /* 인라인으로 표시 */
+  margin: 0 10px; /* 간격 조정 */
+}
+
+.footer-links a {
+  color: black; /* 링크 색상 */
+  text-decoration: none; /* 링크에 밑줄 제거 */
+}
+
+.footer-links a:hover {
+  text-decoration: underline; /* 호버 시 밑줄 추가 */
+}

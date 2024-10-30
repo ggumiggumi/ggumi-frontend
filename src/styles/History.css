@@ -37,7 +37,8 @@
 }
 
 .history-title {
-    font-family: 'Cafe24 Ssurround';
+    font-family: 'Cafe24Ssurround';
+    letter-spacing: -1.5px;
     text-align: center;
     font-size: 32px;
     font-weight: bold;

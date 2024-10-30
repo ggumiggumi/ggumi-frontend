@@ -1,6 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Stylish&display=swap");
-
 .login-container {
   display: flex;
   flex-direction: column;
@@ -14,42 +11,61 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 140px;
 }
 
 .ggumi-main-title {
-  font-family: "Bagel Fat One", system-ui;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 200px;
-  color: #e54851;
+  font-family: 'RixInooAriDuriR', system-ui;
+  font-size: 120px;
+  color: #FF4A4A;
 }
 
 .ggumi-semi-title {
-  font-family: "Stylish", serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 60px;
+  font-family: 'NanumSquareRound', serif;
+  font-weight: 900;
+  font-size: 48px;
   color: #535151;
 }
 
 .welcome-sticker {
-  position: fixed;
-  margin-top: 450px;
+  width: 179px;
+  height: 140px;
+  margin-top: 90px;
 }
 
-.login {
-  position: fixed;
-  width: 600px;
-  height: 90px;
-  padding: 0;
-  border-radius: 15px;
-  border: black solid 2px;
-  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.5);
+.login-button {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 버튼 전체 영역에서 중앙 정렬 */
+  padding: 10px 20px;
+  background-color: #FEE500;
   cursor: pointer;
-  margin-top: 590px;
+  width: 420px;
+  height: 63px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  position: relative; /* 아이콘과 텍스트 위치 조정을 위한 설정 */
+
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-.kakao-login {
-  width: 100%;
-  height: 100%;
+.login-button-icon {
+  width: 30px;
+  height: 30px;
+  position: absolute; /* 아이콘을 버튼의 왼쪽에 고정 */
+  left: 20px; /* 아이콘 위치 조정 */
 }
+
+.login-button-text {
+  font-family: 'NanumSquareRound';
+  font-size: 20px;
+  color: #181600;
+  text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+.login-button:hover{
+  background-color: #E7D10D;
+}
+
+
+

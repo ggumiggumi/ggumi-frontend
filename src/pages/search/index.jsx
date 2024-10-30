@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import Navbar from "../../components/Navbar.jsx";
 import Footer from "../../components/Footer";
 import BookItem from "../../components/BookItem";
-import backgroundImage from "../../assets/background-yellow.png";
+import backgroundImage from "../../assets/background_long.png";
 import axios from "axios";
 import "./styles/Search.css";
 import { API_DOMAIN } from "../../apis/api.js";
@@ -49,16 +49,16 @@ const Search = () => {
   return (
     <>
       <Navbar onSearch={handleSearch} />
-      <div
-        className="background-container"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
-      >
+
+      <div className="search-page-container"
+       style={{ backgroundImage: `url(${backgroundImage})` }}>
+      
         <div className="searched-book-container">
           <h2 className="result-message">
             <span style={{ color: "#FF4A4A" }}>'{keyword}'</span> 검색 결과 총{" "}
             <strong>{books.length}</strong>건
           </h2>
-          <div className="book-list">
+          
             {books.length === 0 ? (
               <div className="no-results">결과가 없습니다.</div> // 결과가 없을 때 메시지 표시
             ) : (
@@ -77,7 +77,7 @@ const Search = () => {
                 ))}
               </div>
             )}
-          </div>
+          
         </div>
         <Footer />
       </div>
