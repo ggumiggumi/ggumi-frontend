@@ -31,8 +31,9 @@ const ProfilesPage = () => {
         fetchProfiles(); // 컴포넌트가 마운트될 때 프로필 정보 가져오기
     }, []);
 
-    const handleSelectProfile = (id) => {
+    const handleSelectProfile = (id, profileCode) => {
         sessionStorage.setItem('childId', id);
+        sessionStorage.setItem('profileCode', profileCode);
         navigate('/main');
     };
 
@@ -63,7 +64,7 @@ const ProfilesPage = () => {
                         key={profile.id}
                         profileImageCode={profile.profileCode}
                         name={profile.name}
-                        onSelect={() => handleSelectProfile(profile.id)}
+                        onSelect={() => handleSelectProfile(profile.id, profile.profileCode)}
                     />
                 ))}
                 <div className='add-profile-card' onClick={handleAddProfile}>

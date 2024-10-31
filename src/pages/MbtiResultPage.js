@@ -70,6 +70,15 @@ function MbtiResultPage() {
     
             } catch (error) {
                 console.error("자녀 MBTI 검사 결과 가져오는 중 에러 발생:", error);
+
+                const confirmNavigate = window.confirm(
+                    '자녀의 MBTI 결과를 확인하고 싶다면 MBTI 검사를 진행해주세요. 현재 자녀의 MBTI 검사 기록이 없습니다!'
+                );
+                if (confirmNavigate) {
+                    navigate('/mbti/main');
+                } else {
+                    navigate(-1);
+                }
             } 
         };
     
@@ -122,6 +131,12 @@ function MbtiResultPage() {
         }
     };
 
+    if (!mbtiType) {
+        return (
+            <div className="mbti-result-page" style={{ backgroundImage: `url(${backgroundImage})` }}/>
+        );
+    }
+
     return (
         <div className="mbti-result-page" style={{ backgroundImage: `url(${backgroundImage})` }}>
 
@@ -131,11 +146,11 @@ function MbtiResultPage() {
                 <div className="logo-title" onClick={handleToMainPage} style={{ cursor: "pointer" }} >꾸미</div>
             </div>
             
-            <div className="info-container">
+            <div className="mbti-info-container">
 
-                <div className="info-section">
+                <div className="mbti-info-section">
                     
-                    <div className="info-title">{childName}의 성향 정보</div>
+                    <div className="mbti-info-title">{childName}의 성향 정보</div>
 
                     <div className="child-info-section">
 

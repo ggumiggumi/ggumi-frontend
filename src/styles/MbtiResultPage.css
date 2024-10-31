@@ -7,7 +7,7 @@
     background-size: cover;
   }
 
-  .info-container {
+  .mbti-info-container {
     width: 1080px;
     flex-grow: 1; /* 남은 공간을 차지하도록 설정 */
     display: flex;
@@ -20,14 +20,14 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
   }
 
-  .info-section {
+  .mbti-info-section {
     display: flex; /* Flexbox 사용 */
     flex-direction: column; /* 세로 방향으로 정렬 */
     width: 1080px;
     height: 500px;
   }
   
-  .info-title {
+  .mbti-info-title {
     display: flex; /* Flexbox 사용 */
     justify-content: center; /* 수평 중앙 정렬 */
     color: #31241c;

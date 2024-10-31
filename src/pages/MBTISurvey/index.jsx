@@ -199,10 +199,11 @@ const MbtiSurvey = () => {
 
   const setMbtiDataToServer = async (averages) => {
     const accessToken = localStorage.getItem("accessToken");
+    const childId = sessionStorage.getItem('childId');
 
     try {
       const response = await axios.post(
-        `http://localhost:8080/api/histories/children/2`,
+        `${API_DOMAIN}/histories/children/${childId}`,
         JSON.stringify(averages),
         {
           headers: {
