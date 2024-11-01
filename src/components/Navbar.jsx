@@ -7,6 +7,9 @@ import profileIcon from "../assets/profile-code1.png"; // 프로필 아이콘 �
 import menuIcon from "../assets/menu_btn.png"; // 메뉴 아이콘 경로
 
 const Navbar = ({ onSearch }) => {
+
+  const profileCode = sessionStorage.getItem('profileCode');
+
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [keyword, setKeyword] = useState("");
@@ -86,7 +89,7 @@ const Navbar = ({ onSearch }) => {
         </form>
       </div>
       <div className="navbar-right">
-        <img src={profileIcon} alt="프로필" className="profile-icon" />
+        <img src={`/profile-code${profileCode}.png`} alt="프로필" className="profile-icon"/>
         <img src={menuIcon} className="menu-icon" onClick={toggleMenu} />
         {isMenuOpen && (
           <div className="submenu">

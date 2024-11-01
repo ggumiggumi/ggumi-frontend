@@ -19,7 +19,7 @@ function MainPage() {
   const [popularityPage, setPopularityPage] = useState(0); // 좋아요 도서 페이지 번호
   const [totalPages, setTotalPages] = useState(0); // 총 페이지 수
 
-  const childId = 1; // 예시로 childId=1 사용
+  const childId = sessionStorage.getItem('childId');
 
   // 메인 페이지가 로드될 때 추천 도서 API를 호출하여 데이터 가져오기
   useEffect(() => {
