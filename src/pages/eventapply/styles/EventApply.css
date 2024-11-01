@@ -13,45 +13,52 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 41px;
+  margin-top: 40px;
 }
 
 .apply-sub-title {
-  width: 611px;
-  height: 60px;
-  flex-shrink: 0;
+  
   color: #272026;
   text-align: center;
-  font-family: "STIX Two Text";
+  font-family: 'NanumSquareRound';
+  letter-spacing: -0.44px;
   font-size: 24px;
-  font-style: normal;
   font-weight: 700;
-  line-height: 60px; /* 250% */
-  letter-spacing: -0.528px;
 }
 
 .apply-title {
   color: #7d57da;
-  font-family: "STIX Two Text";
+  font-family: 'Cafe24Ssurround';
+  letter-spacing: -0.704px;
   font-size: 55px;
   font-style: normal;
-  font-weight: 700;
-  line-height: 48px; /* 87.273% */
-  letter-spacing: -1.21px;
-  margin-top: 53px;
+  margin-top: 20px;
 }
 
 .apply-content-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 125px;
+  margin-top: 40px;
 }
 
+
+
 .guide-container {
-  width: 600px;
-  height: 600px;
-  margin-left: 100px;
+  width: 60%;
+  margin-left: 60px;
+  margin-right: 40px;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border: 2px solid #ccc; /* 연한 회색 테두리 */
+  border-radius: 30px; /* 둥근 모서리 설정 */
+  padding: 40px 20px; /* 내부 여백 추가 */
+  width: 40%;
 }
 
 .period-container,
@@ -79,20 +86,20 @@
 .entry {
   color: #fff5fe;
   text-align: center;
-  font-family: "STIX Two Text";
-  font-size: 24px;
-  font-style: normal;
+  font-family: 'Cafe24Ssurround';
+  letter-spacing: -0.704px;
+  font-size: 22px;
   font-weight: 700;
 }
 
 .explanation {
   color: #272026;
   text-align: center;
-  font-family: "STIX Two Text";
-  font-size: 24px;
+  font-family: 'NanumSquareRound';
+  letter-spacing: -0.704px;
+  letter-spacing: -0.44px;
+  font-size: 22px;
   font-style: normal;
-  font-weight: 500;
-  letter-spacing: -0.528px;
   margin-left: 15px;
   margin-bottom: 13px;
 }
@@ -101,40 +108,26 @@
   width: 650px;
   height: 359px;
 }
-.info-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
-  border: 2px solid #ccc; /* 연한 회색 테두리 */
-  border-radius: 30px; /* 둥근 모서리 설정 */
-  padding: 20px; /* 내부 여백 추가 */
-  width: 440px;
-  height: 584px;
-  margin-left: 140px;
-  margin-bottom: 100px;
-  margin-right: 100px;
-}
+
 
 .info-title {
   color: #9d7ef4;
-  font-family: "STIX Two Text";
+  font-family: 'Cafe24Ssurround';
+  letter-spacing: -0.704px;
   font-size: 32px;
   font-style: normal;
   font-weight: 700;
   line-height: 48px; /* 150% */
-  letter-spacing: -0.704px;
 }
 
 .info-subtitle {
   color: #272026;
   text-align: center;
-  font-family: "STIX Two Text";
+  font-family: 'NanumSquareRound';
+  letter-spacing: -0.44px;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  line-height: 35px; /* 175% */
-  letter-spacing: -0.44px;
 }
 
 .name-input-box,
@@ -144,7 +137,8 @@
   border: 1px solid black;
   border-radius: 10px;
   text-align: center;
-  font-family: "STIX Two Text";
+  font-family: 'NanumSquareRound';
+  letter-spacing: -0.44px;
   font-size: 20px;
   color: #989898;
   line-height: 66px;
@@ -198,12 +192,12 @@
   color: #170f0f;
   text-align: center;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: "STIX Two Text";
+  font-family: 'NanumSquareRound';
+  letter-spacing: -0.44px;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 35px; /* 194.444% */
-  letter-spacing: -0.396px;
   display: flex; /* Flexbox 사용 */
   align-items: center; /* 수직 정렬 */
   margin-left: 10px;
@@ -211,19 +205,19 @@
 
 .agree-text {
   color: #170f0f;
-  font-family: "STIX Two Text";
+  font-family: 'NanumSquareRound';
+  letter-spacing: -0.44px;
   font-size: 18px;
   font-style: normal;
-  letter-spacing: -0.396px;
   text-decoration-line: underline;
 }
 
 .agree-yes {
   color: #989898;
-  font-family: "STIX Two Text";
+  font-family: 'NanumSquareRound';
+  letter-spacing: -0.44px;
   font-size: 18px;
   font-style: normal;
-  letter-spacing: -0.396px;
 }
 
 .event-participation-button {
@@ -238,7 +232,8 @@
   border: 1px solid #ffe9e9;
   border-radius: 15px;
   color: white;
-  font-family: "STIX Two Text";
+  font-family: 'NanumSquareRound';
+  letter-spacing: -0.44px;
   font-size: 24px;
   font-weight: 700;
   text-align: center;
