@@ -1,5 +1,5 @@
 import React from "react";
-import backgroundImage from "../assets/new-background.png"; // 배경 이미지 경로 
+import backgroundImage from "../assets/new-background.png"; // 배경 이미지 경로
 import "../styles/MbtiMain.css";
 import { useNavigate } from "react-router-dom";
 import heartSticker from "../assets/ggumi-heart.png";
@@ -21,7 +21,7 @@ const MbtiMain = () => {
         <div className="main-title">꾸미</div>
       </div>
       <div className="sub-title-container">
-        <div className="sub-title">MBTI로 보는</div> 
+        <div className="sub-title">MBTI로 보는</div>
         <div className="sub-title2">우리 아이 성향 검사</div>
       </div>
       <div className="explanation-container">

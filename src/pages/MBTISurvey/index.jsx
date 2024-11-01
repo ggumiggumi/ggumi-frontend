@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 import backgroundImage from "../../assets/background_long.png"; // 배경 이미지 경로
@@ -9,9 +9,8 @@ import QuestionCard from "../../components/QuestionCard";
 import { API_DOMAIN } from "../../apis/api.js";
 
 const MbtiSurvey = () => {
-
   const navigate = useNavigate();
-  
+
   const questions = [
     {
       id: 1,
@@ -199,7 +198,7 @@ const MbtiSurvey = () => {
 
   const setMbtiDataToServer = async (averages) => {
     const accessToken = localStorage.getItem("accessToken");
-    const childId = sessionStorage.getItem('childId');
+    const childId = sessionStorage.getItem("childId");
 
     try {
       const response = await axios.post(
@@ -223,13 +222,12 @@ const MbtiSurvey = () => {
   }, [responses]);
 
   return (
-    <div className="mbti-survey-container" 
-    style={{ backgroundImage: `url(${backgroundImage})` }}>
-
-      
+    <div
+      className="mbti-survey-container"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
       <div className="logo-container">
-        {/**<img src={heartSticker} alt="꾸미 로고" className="heart-logo" />**/
-        }
+        {/**<img src={heartSticker} alt="꾸미 로고" className="heart-logo" />**/}
         <div className="logo-title">꾸미</div>
       </div>
       <div className="survey-container">
@@ -247,15 +245,13 @@ const MbtiSurvey = () => {
             weights={q.weights}
           />
         ))}
-        
       </div>
 
       <div className="button-container">
         <div className="start-button" onClick={calculateAverages}>
-            검사 결과로 고고씽!
+          검사 결과로 고고씽!
         </div>
       </div>
-      
     </div>
   );
 };
