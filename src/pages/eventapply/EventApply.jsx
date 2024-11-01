@@ -52,7 +52,9 @@ const EventApply = () => {
         </div>
         <div className="apply-title">선착순 도서 선물 이벤트!!</div>
       </div>
+
       <div className="apply-content-container">
+
         <div className="guide-container">
           <div className="period-container">
             <div className="entry-button">
@@ -73,6 +75,7 @@ const EventApply = () => {
             style={{ backgroundImage: `url(${evnetBooksImage})` }}
           />
         </div>
+        
         <div className="info-container">
           <div className="info-title">응모 정보 입력</div>
           <div className="info-subtitle">이벤트에 참여하시려면</div>
