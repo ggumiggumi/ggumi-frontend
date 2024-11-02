@@ -16,36 +16,38 @@ import EventApply from "./pages/eventapply/EventApply";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        {/* 프로필 선택 페이지 */}
-        <Route path="/profiles" element={<ProfilesPage />} />
-        {/* 로그인 페이지 */}
-        <Route path="/" element={<Login />} />
-        {/* 프로필 생성 페이지*/}
-        <Route path="/add-child" element={<AddChild />} />
-        {/* MBTI 검사 전 메인 페이지 */}
-        <Route path="/mbti/main" element={<MbtiMain />} />
-        {/* MBTI 검사 페이지 */}
-        <Route path="/mbti/survey" element={<MBTISurvey />} />
-        {/* MBTI 검사 결과 페이지 */}
-        <Route path="/mbti/result" element={<MbtiResultPage />} />
-        {/* 도서 상세 페이지 */}
-        <Route path="/book-detail/:bookId" element={<BookDetail />} />
-        {/* 메인 페이지*/}
-        <Route path="/main" element={<MainPage />} />
-        {/* 히스토리 페이지 */}
-        <Route path="/history" element={<History />} />
-        {/* 도서 검색 페이지 */}
-        <Route path="/search" element={<Search />} />
-        {/* 콜백 페이지 */}
-        <Route path="/auth/callback" element={<Callback />} />
-        {/* 관리자 페이지 */}
-        <Route path="/admin/add-book" element={<AdminPage />} />
-        {/* 이벤트 응모 페이지 */}
-        <Route path="/event/apply" element={<EventApply />} />
-      </Routes>
-    </Router>
+    <BrowserRouter>
+      <Router>
+        <Routes>
+          {/* 프로필 선택 페이지 */}
+          <Route path="/profiles" element={<ProfilesPage />} />
+          {/* 로그인 페이지 */}
+          <Route path="/" element={<Login />} />
+          {/* 프로필 생성 페이지*/}
+          <Route path="/add-child" element={<AddChild />} />
+          {/* MBTI 검사 전 메인 페이지 */}
+          <Route path="/mbti/main" element={<MbtiMain />} />
+          {/* MBTI 검사 페이지 */}
+          <Route path="/mbti/survey" element={<MBTISurvey />} />
+          {/* MBTI 검사 결과 페이지 */}
+          <Route path="/mbti/result" element={<MbtiResultPage />} />
+          {/* 도서 상세 페이지 */}
+          <Route path="/book-detail/:bookId" element={<BookDetail />} />
+          {/* 메인 페이지*/}
+          <Route path="/main" element={<MainPage />} />
+          {/* 히스토리 페이지 */}
+          <Route path="/history" element={<History />} />
+          {/* 도서 검색 페이지 */}
+          <Route path="/search" element={<Search />} />
+          {/* 콜백 페이지 */}
+          <Route path="/auth/callback" element={<Callback />} />
+          {/* 관리자 페이지 */}
+          <Route path="/admin/add-book" element={<AdminPage />} />
+          {/* 이벤트 응모 페이지 */}
+          <Route path="/event/apply" element={<EventApply />} />
+        </Routes>
+      </Router>
+    </BrowserRouter>
   );
 }
 
