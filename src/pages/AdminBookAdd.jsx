@@ -137,7 +137,7 @@ const AdminBookAdd = () => {
                     <div className='book-cover-container'>
                         <div className='book-cover'>
                             {bookCover ? (
-                                <img src={bookCover} alt='Book Cover' />
+                                <img className='book-cover' src={bookCover} alt='Book Cover' />
                             ) : (
                                 <div className='placeholder'>표지 이미지</div>
                             )}
@@ -195,6 +195,8 @@ const AdminBookAdd = () => {
                             ></input>
                         </div>
 
+                        {/* 
+
                         <div className='book-detail-info-section'>
                             <div className='book-detail-info-label'>MBTI</div>
                             <div className='book-detail-mbti-section'>
@@ -247,6 +249,7 @@ const AdminBookAdd = () => {
                                 </div>
                             </div>
                         </div>
+                        */}
 
                         <div className='book-detail-info-section'>
                             <div className='book-detail-info-label'>줄거리</div>
