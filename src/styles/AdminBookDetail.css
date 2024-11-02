@@ -1,0 +1,155 @@
+.book-edit-page {
+    width: 100%;
+    height: 100vh;
+    margin-top: 120px;
+    display: flex; /* Flexbox 사용 */
+    justify-content: center; /* 중앙 정렬 */
+}
+
+.book-main-container {
+    display: flex;             /* flexbox 사용 */
+    flex-direction: column;    /* 항목들을 수직으로 정렬 */
+    align-items: flex-start;   /* 왼쪽 정렬 (필요에 따라 조정 가능) */
+    gap: 20px;                 /* 항목 간의 간격 */
+    margin-top: 20px;          /* 상단 여백 */
+}
+
+.book-info-container {
+    display: flex; /* Flexbox 사용 */
+    width: 100%; /* 전체 너비 차지 */
+    height: 75%;
+}
+
+.book-cover-container {
+    width: 30%; /* 커버가 40% 차지 */
+    display: flex; /* Flexbox 사용 */
+    flex-direction: column; /* 수직 정렬 */
+    align-items: center; /* 가운데 정렬 */
+}
+
+.book-cover {
+    width: 250px;
+    height: 350px;
+    border: 2px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: #f4f4f4;
+}
+
+.book-detail-info-container {
+    width: 70%; /* 정보가 60% 차지 */
+    display: flex; /* Flexbox 사용 */
+    flex-direction: column; /* 수직 정렬 */
+    align-items: center; /* 가운데 정렬 */
+}
+
+.book-detail-info-section {
+    display: flex; /* Flexbox 사용 */
+    align-items: center; /* 수직 가운데 정렬 */
+    width: 100%; /* 필요한 경우 전체 너비를 설정 */
+
+    margin-right: 40px;
+
+    gap:40px;
+
+    margin-bottom: 10px;
+    
+}
+
+.book-detail-info-label {
+    width: 120px; /* 라벨의 고정 너비 */
+    flex-shrink: 0; /* 라벨의 크기가 줄어들지 않도록 설정 */
+
+    font-family: 'Cafe24Ssurround';
+    font-size: 20px; /* 텍스트 크기 */
+    letter-spacing: -0.704px;
+    font-weight: 900;
+
+    text-align: right; /* 텍스트를 오른쪽 정렬 */
+}
+
+.book-detail-info-value {
+    flex-grow: 1; /* 남은 공간을 차지하도록 설정 */
+
+    font-size: 16px; /* 텍스트 크기 */
+    font-family: 'NanumSquareRound';
+    letter-spacing: -0.44px;
+    font-weight: 700;
+
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.book-detail-mbti-section {
+    display: flex; /* 가로로 정렬 */
+    justify-content: space-between; /* 항목 간격을 균등하게 배분 */
+}
+
+.book-detail-mbti-section {
+    flex-grow: 1; /* 남은 공간을 차지하도록 설정 */
+    display: flex; /* 가로로 정렬 */
+    justify-content: space-between; /* 항목 간격을 균등하게 배분 */
+    overflow: hidden; /* 넘치는 내용을 숨김 */
+    white-space: nowrap; /* 텍스트 줄 바꿈 방지 */
+    width: 100%; /* 필요한 경우 전체 너비를 설정 */
+}
+
+.book-detail-mbti-info {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px; /* 위쪽 패딩 추가 (선택사항) */
+    padding-bottom: 10px; /* 아래쪽 패딩 추가 (선택사항) */
+    
+    border-radius: 5px; /* 모서리 둥글게 (선택사항) */
+    background-color: #f9a825;
+    
+}
+
+.book-detail-mbti-label {
+    text-align: center; /* 가운데 정렬 */
+    color: white;
+    font-family: 'NanumSquareRound';
+    font-size: 16px; /* 텍스트 크기 */
+    letter-spacing: -0.44px;
+    font-weight: 900;
+}
+
+.book-detail-mbti-value {
+    text-align: center; /* 가운데 정렬 */
+    color: #555; /* 값의 색상 */
+    font-family: 'NanumSquareRound';
+    font-size: 16px; /* 텍스트 크기 */
+    letter-spacing: -0.44px;
+    font-weight: 700;
+    width : 80px;
+
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.book-detail-button-container {
+    width: 100%;
+    display: flex;              /* 가로로 배치 */
+    justify-content: center;    /* 전체 컨테이너 기준으로 가운데 정렬 */
+    align-items: center;        /* 세로 중앙 정렬 */
+    gap: 16px;                  /* 항목 사이 간격 설정 */
+    padding: 10px;              /* 전체 padding 설정 (필요에 따라 조정) */
+}
+
+.upload-button, .edit-button, .book-delete-button, .list-button {
+    background-color: #f9a825;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+
+    font-family: 'NanumSquareRound';
+    font-size: 16px; /* 텍스트 크기 */
+    letter-spacing: -0.44px;
+    font-weight: 900;
+}

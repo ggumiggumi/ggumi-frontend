@@ -1,0 +1,132 @@
+/* AdminMainPage.css */
+
+  .admin-main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-position: center;
+  }
+  
+  .admin-main-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .book-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .book-list li {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+  }
+  
+  .book-list img {
+    margin-right: 15px;
+    border-radius: 5px;
+  }
+  
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap : 10px;
+  }
+  
+  .pagination-container button {
+    background-color: #f9a825;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+
+    font-family: 'NanumSquareRound';
+    font-size: 16px; /* 텍스트 크기 */
+    letter-spacing: -0.44px;
+    font-weight: 900;
+  }
+
+  .pagination-container button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .pagination-container span {
+    font-weight: bold;
+  }
+  
+
+  #customers {
+    font-size: 16px; /* 텍스트 크기 */
+    padding: 5px; /* 패딩 추가 (선택사항) */
+    font-family: 'NanumSquareRound';
+    letter-spacing: -0.44px;
+    font-weight: 700;
+
+
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  #customers tr:nth-child(even) {
+    background-color: #ffffff; /* 짝수 행의 배경색을 흰색으로 설정 */
+    }
+
+  #customers tr:nth-child(odd) {
+    background-color: #ffffff; /* 홀수 행의 배경색을 흰색으로 설정 */
+    }
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #f9a825;
+    color: white;
+
+    font-family: 'Cafe24Ssurround';
+    font-size: 20px; /* 텍스트 크기 */
+    letter-spacing: -0.704px;
+    font-weight: 700;
+
+  }
+
+  .admin-button-container {
+    display: flex;          /* Flexbox 사용 */
+    justify-content: flex-end; /* 오른쪽 정렬 */
+    margin-top: 20px;     /* 위쪽 여백 추가 (선택 사항) */
+}
+
+
+
+
+
+
+
+.book-add-button{
+  background-color: #f9a825;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+
+  font-family: 'NanumSquareRound';
+  font-size: 16px; /* 텍스트 크기 */
+  letter-spacing: -0.44px;
+  font-weight: 900;
+}

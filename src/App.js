@@ -11,8 +11,10 @@ import MainPage from "./pages/MainPage";
 import History from "./pages/History";
 import Search from "./pages/search/index";
 import Callback from "./pages/AuthCallback";
-import AdminPage from "./pages/AdminPage";
 import EventApply from "./pages/eventapply/EventApply";
+import AdminMainPage from "./pages/AdminMainPage";
+import AdminBookDetail from "./pages/AdminBookDetail";
+import AdminBookAdd from "./pages/AdminBookAdd";
 
 function App() {
   return (
@@ -40,8 +42,12 @@ function App() {
         <Route path="/search" element={<Search />} />
         {/* 콜백 페이지 */}
         <Route path="/auth/callback" element={<Callback />} />
+        {/* 관리자 페이지 (메인)*/}
+        <Route path="/admin" element={<AdminMainPage />} />
+        {/* 관리자 페이지 (책 상세 페이지)*/}
+        <Route path="/admin/book-detail/:bookId" element={<AdminBookDetail />} />
         {/* 관리자 페이지 */}
-        <Route path="/admin/add-book" element={<AdminPage />} />
+        <Route path="/admin/add-book" element={<AdminBookAdd />} />
         {/* 이벤트 응모 페이지 */}
         <Route path="/event/apply" element={<EventApply />} />
       </Routes>
