@@ -21,7 +21,7 @@ function App() {
         {/* 프로필 선택 페이지 */}
         <Route path="/profiles" element={<ProfilesPage />} />
         {/* 로그인 페이지 */}
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         {/* 프로필 생성 페이지*/}
         <Route path="/add-child" element={<AddChild />} />
         {/* MBTI 검사 전 메인 페이지 */}
