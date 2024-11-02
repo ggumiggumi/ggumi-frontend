@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { API_DOMAIN } from "../apis/api";
 
 const CLIENT_ID = "49ca0576cd2ac11f1b1e5b04b39741b5"; // 카카오 앱 키
-const REDIRECT_URI = "http://localhost:3000/auth/callback"; // Redirect URI
+const REDIRECT_URI = "https://ggumi.netlify.app/auth/callback"; // Redirect URI
 
 const AuthCallback = () => {
   const navigate = useNavigate();
