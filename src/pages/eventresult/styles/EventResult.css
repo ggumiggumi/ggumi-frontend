@@ -1,0 +1,27 @@
+.winners-table-container {
+  max-height: 800px;
+  overflow-y: auto;
+  margin: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 800px;
+}
+
+.winners-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.winners-table th,
+.winners-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.winners-table th {
+  background-color: #9d7ef4;
+  color: white;
+}
