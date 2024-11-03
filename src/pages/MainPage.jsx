@@ -9,6 +9,7 @@ import nextPageIcon from "../assets/next_btn.png";
 import { API_DOMAIN } from "../apis/api.js";
 
 import backgroundImage from "../assets/background_long.png"; // 배경 이미지 경로
+import eventBannerImage from "../assets/event-banner.png"
 
 function MainPage() {
   const navigate = useNavigate();
@@ -91,6 +92,10 @@ function MainPage() {
     navigate(`/search?keyword=${keyword}`);
   };
 
+  const handleBannerClick = () => {
+    navigate("/event/apply");
+  };
+
   return (
     <>
     
@@ -100,6 +105,15 @@ function MainPage() {
 
       
         <div className="content-container">
+
+        <div className="title">이벤트</div>
+        <div className="event-banner">
+          <img className="event-banner-image" 
+          src={eventBannerImage} 
+          onClick={handleBannerClick} // onClick에 함수 연결
+          style={{ cursor: 'pointer' }}/>
+        </div>
+
           {/* 추천 도서 Section */}
           <Section
             title="이런 책은 어때요?"
