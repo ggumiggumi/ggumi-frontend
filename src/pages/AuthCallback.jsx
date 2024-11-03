@@ -38,11 +38,21 @@ const AuthCallback = () => {
 
           console.log(serverResponse.data.data);
 
-          const { accessToken, refreshToken } = serverResponse.data.data;
+          const { accessToken, refreshToken, role } = serverResponse.data.data;
 
           localStorage.setItem("accessToken", accessToken);
           localStorage.setItem("refreshToken", refreshToken);
-          navigate("/profiles");
+
+          if(role == 'ADMIN')
+          {
+            navigate("/admin"); // 관리자 페이지로
+          }
+          else
+          {
+            navigate("/profiles");
+          }
+
+          
         } catch (error) {
           console.error("Error during token retrieval:", error);
         }
