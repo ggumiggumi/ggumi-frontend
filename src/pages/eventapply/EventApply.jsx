@@ -9,6 +9,35 @@ const EventApply = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [checked, setChecked] = useState(false);
+  const [isEventTime, setIsEventTime] = useState(false);
+
+  const checkEventTime = () => {
+    const now = new Date();
+    const startHour = 16;
+    const endHour = 16;
+    const startMinute = 0;
+    const endMinute = 47;
+
+    const currentHour = now.getHours();
+    const currentMinute = now.getMinutes();
+
+    if (
+      (currentHour > startHour ||
+        (currentHour === startHour && currentMinute >= startMinute)) &&
+      (currentHour < endHour ||
+        (currentHour === endHour && currentMinute <= endMinute))
+    ) {
+      setIsEventTime(true);
+    } else {
+      setIsEventTime(false);
+    }
+  };
+
+  useEffect(() => {
+    checkEventTime();
+    const interval = setInterval(checkEventTime, 60000); // 1분마다 이벤트 시간 확인
+    return () => clearInterval(interval); // 컴포넌트 언마운트 시 interval 정리
+  }, []);
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -22,9 +51,13 @@ const EventApply = () => {
     setChecked(!checked);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!isEventTime) {
+      alert("이벤트 참여 기간이 아닙니다."); // 이벤트 시간 외에 클릭 시 메시지
+      return;
+    }
     if (!name) {
       alert("이름을 입력해주세요.");
       return;
@@ -38,6 +71,26 @@ const EventApply = () => {
     if (!checked) {
       alert("필수 항목에 동의해주세요.");
       return;
+    }
+
+    const data = {
+      name,
+      phoneNumber: phone,
+      applyTime: Date.now(), // 현재 시간 (ms 단위)
+    };
+
+    try {
+      const accessToken = localStorage.getItem("accessToken");
+      const response = await axios.post(`${API_DOMAIN}/apply/ver5`, data, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      alert("이벤트 참여가 완료되었습니다!");
+      console.log("Response:", response.data);
+    } catch (error) {
+      console.error("이벤트 참여를 실패했습니다:", error);
+      alert("이벤트 참여에 실패했습니다. 다시 시도해 주세요.");
     }
   };
 
@@ -54,7 +107,6 @@ const EventApply = () => {
       </div>
 
       <div className="apply-content-container">
-
         <div className="guide-container">
           <div className="period-container">
             <div className="entry-button">
@@ -75,7 +127,7 @@ const EventApply = () => {
             style={{ backgroundImage: `url(${evnetBooksImage})` }}
           />
         </div>
-        
+
         <div className="info-container">
           <div className="info-title">응모 정보 입력</div>
           <div className="info-subtitle">이벤트에 참여하시려면</div>

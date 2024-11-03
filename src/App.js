@@ -15,6 +15,7 @@ import EventApply from "./pages/eventapply/EventApply";
 import AdminMainPage from "./pages/AdminMainPage";
 import AdminBookDetail from "./pages/AdminBookDetail";
 import AdminBookAdd from "./pages/AdminBookAdd";
+import EventResult from "./pages/eventresult/EventResult";
 
 function App() {
   return (
@@ -45,11 +46,16 @@ function App() {
         {/* 관리자 페이지 (메인)*/}
         <Route path="/admin" element={<AdminMainPage />} />
         {/* 관리자 페이지 (책 상세 페이지)*/}
-        <Route path="/admin/book-detail/:bookId" element={<AdminBookDetail />} />
+        <Route
+          path="/admin/book-detail/:bookId"
+          element={<AdminBookDetail />}
+        />
         {/* 관리자 페이지 */}
         <Route path="/admin/add-book" element={<AdminBookAdd />} />
         {/* 이벤트 응모 페이지 */}
         <Route path="/event/apply" element={<EventApply />} />
+        {/* 이벤트 결과 페이지 */}
+        <Route path="/event/result" element={<EventResult />} />s
       </Routes>
     </Router>
   );
