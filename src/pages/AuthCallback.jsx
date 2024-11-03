@@ -43,7 +43,7 @@ const AuthCallback = () => {
           localStorage.setItem("accessToken", accessToken);
           localStorage.setItem("refreshToken", refreshToken);
 
-          if(role == 'ADMIN')
+          if (role === 'ADMIN')
           {
             navigate("/admin"); // 관리자 페이지로
           }
