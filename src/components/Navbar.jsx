@@ -33,7 +33,7 @@ const Navbar = ({ onSearch }) => {
   const handleToLogoutClick = () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
-    navigate(`/login`);
+    navigate(`/`);
   };
 
   const handleSearch = (e) => {
