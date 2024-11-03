@@ -122,7 +122,6 @@ function MbtiResultPage() {
 
   const deleteRequest = async () => {
     const isConfirmed = window.confirm("진단 데이터를 삭제하시겠습니까?");
-    console.log(isConfirmed);
     if (isConfirmed) {
       try {
         const childId = sessionStorage.getItem("childId");

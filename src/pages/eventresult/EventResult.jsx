@@ -11,12 +11,18 @@ const EventResult = () => {
     const fetchWinners = async () => {
       try {
         const accessToken = localStorage.getItem("accessToken");
-        const response = await axios.get(`${API_DOMAIN}/event/winners`, {
+        const response = await axios.get(`${API_DOMAIN}/winner/list/test`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
         });
-        setWinners(response.data);
+
+        // 응답 데이터가 성공적일 때 winners 상태 업데이트
+        if (response.data.status === "SUCCESS") {
+          setWinners(response.data.data);
+        } else {
+          console.error("데이터 가져오기 실패:", response.data.message);
+        }
       } catch (error) {
         console.error(
           "당첨자 데이터를 가져오는 데 오류가 발생했습니다:",
@@ -24,142 +30,6 @@ const EventResult = () => {
         );
       }
     };
-
-    const mockWinners = [
-      { name: "고경남", phoneNumber: "010-1234-5678" },
-      { name: "김영희", phoneNumber: "010-2345-6789" },
-      { name: "이철수", phoneNumber: "010-3456-7890" },
-      { name: "박지민", phoneNumber: "010-4567-8901" },
-      { name: "최현우", phoneNumber: "010-5678-9012" },
-      { name: "이영희", phoneNumber: "010-6789-0123" },
-      { name: "강철수", phoneNumber: "010-7890-1234" },
-      { name: "김민지", phoneNumber: "010-8901-2345" },
-      { name: "최민수", phoneNumber: "010-9012-3456" },
-      { name: "홍길동", phoneNumber: "010-0123-4567" },
-      { name: "이순신", phoneNumber: "010-3456-7890" },
-      { name: "고경남", phoneNumber: "010-1234-5678" },
-      { name: "김영희", phoneNumber: "010-2345-6789" },
-      { name: "이철수", phoneNumber: "010-3456-7890" },
-      { name: "박지민", phoneNumber: "010-4567-8901" },
-      { name: "최현우", phoneNumber: "010-5678-9012" },
-      { name: "이영희", phoneNumber: "010-6789-0123" },
-      { name: "강철수", phoneNumber: "010-7890-1234" },
-      { name: "김민지", phoneNumber: "010-8901-2345" },
-      { name: "최민수", phoneNumber: "010-9012-3456" },
-      { name: "홍길동", phoneNumber: "010-0123-4567" },
-      { name: "이순신", phoneNumber: "010-3456-7890" },
-      { name: "고경남", phoneNumber: "010-1234-5678" },
-      { name: "김영희", phoneNumber: "010-2345-6789" },
-      { name: "이철수", phoneNumber: "010-3456-7890" },
-      { name: "박지민", phoneNumber: "010-4567-8901" },
-      { name: "최현우", phoneNumber: "010-5678-9012" },
-      { name: "이영희", phoneNumber: "010-6789-0123" },
-      { name: "강철수", phoneNumber: "010-7890-1234" },
-      { name: "김민지", phoneNumber: "010-8901-2345" },
-      { name: "최민수", phoneNumber: "010-9012-3456" },
-      { name: "홍길동", phoneNumber: "010-0123-4567" },
-      { name: "이순신", phoneNumber: "010-3456-7890" },
-      { name: "고경남", phoneNumber: "010-1234-5678" },
-      { name: "김영희", phoneNumber: "010-2345-6789" },
-      { name: "이철수", phoneNumber: "010-3456-7890" },
-      { name: "박지민", phoneNumber: "010-4567-8901" },
-      { name: "최현우", phoneNumber: "010-5678-9012" },
-      { name: "이영희", phoneNumber: "010-6789-0123" },
-      { name: "강철수", phoneNumber: "010-7890-1234" },
-      { name: "김민지", phoneNumber: "010-8901-2345" },
-      { name: "최민수", phoneNumber: "010-9012-3456" },
-      { name: "홍길동", phoneNumber: "010-0123-4567" },
-      { name: "이순신", phoneNumber: "010-3456-7890" },
-      { name: "고경남", phoneNumber: "010-1234-5678" },
-      { name: "김영희", phoneNumber: "010-2345-6789" },
-      { name: "이철수", phoneNumber: "010-3456-7890" },
-      { name: "박지민", phoneNumber: "010-4567-8901" },
-      { name: "최현우", phoneNumber: "010-5678-9012" },
-      { name: "이영희", phoneNumber: "010-6789-0123" },
-      { name: "강철수", phoneNumber: "010-7890-1234" },
-      { name: "김민지", phoneNumber: "010-8901-2345" },
-      { name: "최민수", phoneNumber: "010-9012-3456" },
-      { name: "홍길동", phoneNumber: "010-0123-4567" },
-      { name: "이순신", phoneNumber: "010-3456-7890" },
-      { name: "고경남", phoneNumber: "010-1234-5678" },
-      { name: "김영희", phoneNumber: "010-2345-6789" },
-      { name: "이철수", phoneNumber: "010-3456-7890" },
-      { name: "박지민", phoneNumber: "010-4567-8901" },
-      { name: "최현우", phoneNumber: "010-5678-9012" },
-      { name: "이영희", phoneNumber: "010-6789-0123" },
-      { name: "강철수", phoneNumber: "010-7890-1234" },
-      { name: "김민지", phoneNumber: "010-8901-2345" },
-      { name: "최민수", phoneNumber: "010-9012-3456" },
-      { name: "홍길동", phoneNumber: "010-0123-4567" },
-      { name: "이순신", phoneNumber: "010-3456-7890" },
-      { name: "고경남", phoneNumber: "010-1234-5678" },
-      { name: "김영희", phoneNumber: "010-2345-6789" },
-      { name: "이철수", phoneNumber: "010-3456-7890" },
-      { name: "박지민", phoneNumber: "010-4567-8901" },
-      { name: "최현우", phoneNumber: "010-5678-9012" },
-      { name: "이영희", phoneNumber: "010-6789-0123" },
-      { name: "강철수", phoneNumber: "010-7890-1234" },
-      { name: "김민지", phoneNumber: "010-8901-2345" },
-      { name: "최민수", phoneNumber: "010-9012-3456" },
-      { name: "홍길동", phoneNumber: "010-0123-4567" },
-      { name: "이순신", phoneNumber: "010-3456-7890" },
-      { name: "고경남", phoneNumber: "010-1234-5678" },
-      { name: "김영희", phoneNumber: "010-2345-6789" },
-      { name: "이철수", phoneNumber: "010-3456-7890" },
-      { name: "박지민", phoneNumber: "010-4567-8901" },
-      { name: "최현우", phoneNumber: "010-5678-9012" },
-      { name: "이영희", phoneNumber: "010-6789-0123" },
-      { name: "강철수", phoneNumber: "010-7890-1234" },
-      { name: "김민지", phoneNumber: "010-8901-2345" },
-      { name: "최민수", phoneNumber: "010-9012-3456" },
-      { name: "홍길동", phoneNumber: "010-0123-4567" },
-      { name: "이순신", phoneNumber: "010-3456-7890" },
-      { name: "고경남", phoneNumber: "010-1234-5678" },
-      { name: "김영희", phoneNumber: "010-2345-6789" },
-      { name: "이철수", phoneNumber: "010-3456-7890" },
-      { name: "박지민", phoneNumber: "010-4567-8901" },
-      { name: "최현우", phoneNumber: "010-5678-9012" },
-      { name: "이영희", phoneNumber: "010-6789-0123" },
-      { name: "강철수", phoneNumber: "010-7890-1234" },
-      { name: "김민지", phoneNumber: "010-8901-2345" },
-      { name: "최민수", phoneNumber: "010-9012-3456" },
-      { name: "홍길동", phoneNumber: "010-0123-4567" },
-      { name: "이순신", phoneNumber: "010-3456-7890" },
-      { name: "고경남", phoneNumber: "010-1234-5678" },
-      { name: "김영희", phoneNumber: "010-2345-6789" },
-      { name: "이철수", phoneNumber: "010-3456-7890" },
-      { name: "박지민", phoneNumber: "010-4567-8901" },
-      { name: "최현우", phoneNumber: "010-5678-9012" },
-      { name: "이영희", phoneNumber: "010-6789-0123" },
-      { name: "강철수", phoneNumber: "010-7890-1234" },
-      { name: "김민지", phoneNumber: "010-8901-2345" },
-      { name: "최민수", phoneNumber: "010-9012-3456" },
-      { name: "홍길동", phoneNumber: "010-0123-4567" },
-      { name: "이순신", phoneNumber: "010-3456-7890" },
-      { name: "고경남", phoneNumber: "010-1234-5678" },
-      { name: "김영희", phoneNumber: "010-2345-6789" },
-      { name: "이철수", phoneNumber: "010-3456-7890" },
-      { name: "박지민", phoneNumber: "010-4567-8901" },
-      { name: "최현우", phoneNumber: "010-5678-9012" },
-      { name: "이영희", phoneNumber: "010-6789-0123" },
-      { name: "강철수", phoneNumber: "010-7890-1234" },
-      { name: "김민지", phoneNumber: "010-8901-2345" },
-      { name: "최민수", phoneNumber: "010-9012-3456" },
-      { name: "홍길동", phoneNumber: "010-0123-4567" },
-      { name: "이순신", phoneNumber: "010-3456-7890" },
-      { name: "고경남", phoneNumber: "010-1234-5678" },
-      { name: "김영희", phoneNumber: "010-2345-6789" },
-      { name: "이철수", phoneNumber: "010-3456-7890" },
-      { name: "박지민", phoneNumber: "010-4567-8901" },
-      { name: "최현우", phoneNumber: "010-5678-9012" },
-      { name: "이영희", phoneNumber: "010-6789-0123" },
-      { name: "강철수", phoneNumber: "010-7890-1234" },
-      { name: "김민지", phoneNumber: "010-8901-2345" },
-      { name: "최민수", phoneNumber: "010-9012-3456" },
-      { name: "홍길동", phoneNumber: "010-0123-4567" },
-      { name: "이순신", phoneNumber: "010-3456-7890" },
-    ];
-    setWinners(mockWinners);
 
     fetchWinners();
   }, []);
@@ -186,7 +56,7 @@ const EventResult = () => {
             {winners.map((winner, index) => (
               <tr key={index}>
                 <td>{winner.name}</td>
-                <td>{winner.phoneNumber.slice(-4)}</td>{" "}
+                <td>{winner.phoneNumber}</td>
               </tr>
             ))}
           </tbody>
