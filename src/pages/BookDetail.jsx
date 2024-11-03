@@ -303,7 +303,7 @@ const BookDetail = () => {
                 {formatDate(bookDetails.createdAt)}
               </div>
               <div className="book-text">{bookDetails.content}</div>
-              <button className="read-button">독서하기</button>
+              
             </div>
           </div>
         </div>
