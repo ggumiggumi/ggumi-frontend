@@ -13,10 +13,10 @@ const EventApply = () => {
 
   const checkEventTime = () => {
     const now = new Date();
-    const startHour = 16;
-    const endHour = 16;
+    const startHour = 12;
+    const endHour = 18;
     const startMinute = 0;
-    const endMinute = 47;
+    const endMinute = 0;
 
     const currentHour = now.getHours();
     const currentMinute = now.getMinutes();
