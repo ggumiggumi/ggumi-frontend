@@ -16,7 +16,8 @@ const BookDetail = () => {
   const navigate = useNavigate();
 
   // 추후에 자녀의 아이디를 받아서 사용
-  const childId = 1;
+  //const childId = 1;
+  const childId = sessionStorage.getItem('childId');
 
   // 도서 상세 내용을 가져와 사용하기 위한 bookDetails (DTO 개념)
   const [bookDetails, setBookDetails] = useState(null);
