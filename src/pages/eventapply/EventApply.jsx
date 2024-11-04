@@ -101,7 +101,7 @@ const EventApply = () => {
     >
       <div className="apply-title-container">
         <div className="apply-sub-title">
-          선착순 10분에게 드리는 특별한 혜택
+          선착순 100분에게 드리는 특별한 혜택
         </div>
         <div className="apply-title">선착순 도서 선물 이벤트!!</div>
       </div>
